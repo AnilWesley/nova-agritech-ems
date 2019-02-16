@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "272356620415",
+    "firebase_url": "https://ems-nova-agri-tech.firebaseio.com",
+    "project_id": "ems-nova-agri-tech",
+    "storage_bucket": "ems-nova-agri-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272356620415:android:8a30c50b67e9f9b5",
+        "android_client_info": {
+          "package_name": "com.novaagritech.ems"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272356620415-2mnf3u1nip6eog1cd4fqpk4a235ulajc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeoah9R7SVH2YD39mGv-6oePm6pI6shGw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

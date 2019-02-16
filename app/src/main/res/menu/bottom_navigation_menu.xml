@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="example.javatpoint.com.optionmenu.MainActivity">
 
-    <item  android:id="@+id/item1"
-        android:title="Home"
-        android:icon="@drawable/ic_dashboard_black_24dp"/>
-    <item  android:id="@+id/item2"
+    <item  android:id="@+id/menuDashbord"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_outline_dashboard_24px"/>
+    <item  android:id="@+id/menuCalender"
         android:title="Calender"
-        android:icon="@drawable/ic_date_range_black_24dp"/>
-    <item  android:id="@+id/item3"
+        android:icon="@drawable/ic_outline_today_24px"/>
+    <item  android:id="@+id/menuProfile"
         android:title="Profile"
         app:showAsAction="withText"
         android:icon="@drawable/ic_outline_person_outline_24"/>
