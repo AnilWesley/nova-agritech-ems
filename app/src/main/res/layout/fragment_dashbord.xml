@@ -8,15 +8,27 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="120dp"
+            android:background="?android:colorBackground">
 
-            <TextView
-                android:id="@+id/title"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                android:gravity="center"
-                android:text="Dashboard"
-                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+                android:layout_height="match_parent"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:contentScrim="?android:colorBackground"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?android:colorBackground"
+                    app:layout_collapseMode="pin" />
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
 
         </com.google.android.material.appbar.AppBarLayout>
 
