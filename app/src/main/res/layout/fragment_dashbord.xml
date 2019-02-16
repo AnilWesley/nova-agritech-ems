@@ -16,6 +16,7 @@
                 android:layout_height="match_parent"
                 app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Subhead"
                 app:contentScrim="?android:colorBackground"
+                app:expandedTitleMarginStart="18dp"
                 app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 

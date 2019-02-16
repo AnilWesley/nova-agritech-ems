@@ -14,10 +14,14 @@ import android.widget.Toast;
 import com.agritech.empmanager.databinding.ActivityHomeBinding;
 import com.agritech.empmanager.fragments.CalendarFragment;
 import com.agritech.empmanager.fragments.DashboardFragment;
+import com.agritech.empmanager.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Home extends AppCompatActivity implements DashboardFragment.OnDashboardFragmentInteractionListener, CalendarFragment.OnCalendarFragmentInteractionListener {
+public class Home extends AppCompatActivity implements
+        DashboardFragment.OnDashboardFragmentInteractionListener,
+        CalendarFragment.OnCalendarFragmentInteractionListener,
+        ProfileFragment.OnProfileFragmentInteractionListener {
 
     ActivityHomeBinding binding;
     private FirebaseAuth mAuth;
@@ -55,7 +59,7 @@ public class Home extends AppCompatActivity implements DashboardFragment.OnDashb
                 loadFragment(new CalendarFragment());
                 return true;
             case R.id.menuProfile:
-                //toolbar.setTitle("Cart");
+                loadFragment(new ProfileFragment());
                 return true;
         }
         return false;
@@ -76,7 +80,12 @@ public class Home extends AppCompatActivity implements DashboardFragment.OnDashb
     }
 
     @Override
-    public void onCalendarFragmentInteraction(Uri uri) {
+    public void onCalendarFragmentInteraction(String uri) {
+        setTitle(uri);
+    }
+
+    @Override
+    public void onProfileFragmentInteraction(String title) {
 
     }
 }

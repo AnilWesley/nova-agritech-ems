@@ -1,55 +1,55 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.vamsi.birthdayreminder.CardsActivity">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:background="?android:colorBackground">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+
                 app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Subhead"
                 app:contentScrim="?android:colorBackground"
                 app:expandedTitleMarginStart="18dp"
                 app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:background="?android:colorBackground" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="?android:colorBackground"
                     app:layout_collapseMode="pin" />
 
-
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <com.agritech.empmanager.mcalendar.CompactCalendarView
-            android:id="@+id/mCalenderView"
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:layout_marginTop="12dp"
-            app:compactCalendarBackgroundColor="?android:colorBackground"
-            app:compactCalendarCurrentDayBackgroundColor="#aaaa"
-            app:compactCalendarCurrentSelectedDayBackgroundColor="?android:colorBackground"
-            app:compactCalendarCurrentSelectedDayTextColor="@color/colorBlack"
-            app:compactCalendarMultiEventIndicatorColor="#fff"
-            app:compactCalendarTargetHeight="250dp"
-            app:compactCalendarTextColor="@color/colorBlack"
-            app:compactCalendarTextSize="12sp"
+        <FrameLayout
+            android:id="@+id/flPro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
