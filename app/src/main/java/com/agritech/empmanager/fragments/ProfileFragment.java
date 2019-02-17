@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    binding.toolbarLayout.setTitle("Pro version");
+                    binding.toolbarLayout.setTitle("Vamsi Krishna Paladugu");
                     isShow = true;
                 } else if (isShow) {
                     binding.toolbarLayout.setTitle(" ");

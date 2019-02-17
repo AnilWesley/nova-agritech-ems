@@ -33,23 +33,63 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.agritech.empmanager.mcalendar.CompactCalendarView
-            android:id="@+id/mCalenderView"
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:layout_marginTop="12dp"
-            app:compactCalendarBackgroundColor="?android:colorBackground"
-            app:compactCalendarCurrentDayBackgroundColor="#aaaa"
-            app:compactCalendarCurrentSelectedDayBackgroundColor="?android:colorBackground"
-            app:compactCalendarCurrentSelectedDayTextColor="@color/colorBlack"
-            app:compactCalendarMultiEventIndicatorColor="#fff"
-            app:compactCalendarTargetHeight="250dp"
-            app:compactCalendarTextColor="@color/colorBlack"
-            app:compactCalendarTextSize="12sp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.agritech.empmanager.mcalendar.CompactCalendarView
+                    android:id="@+id/mCalenderView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    app:compactCalendarBackgroundColor="?android:colorBackground"
+                    app:compactCalendarCurrentDayBackgroundColor="#aaaa"
+                    app:compactCalendarCurrentSelectedDayBackgroundColor="?android:colorBackground"
+                    app:compactCalendarCurrentSelectedDayTextColor="@color/colorBlack"
+                    app:compactCalendarMultiEventIndicatorColor="#fff"
+                    app:compactCalendarTargetHeight="250dp"
+                    app:compactCalendarTextColor="@color/colorBlack"
+                    app:compactCalendarTextSize="12sp" />
+
+
+                <include layout="@layout/single_calender_late" />
+
+                <include layout="@layout/single_calender_leave" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginLeft="18dp"
+                    android:alpha="0.6"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:text="Public Holidays" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="#4aaa" />
+
+                <include layout="@layout/single_calendar_holiday" />
+
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
