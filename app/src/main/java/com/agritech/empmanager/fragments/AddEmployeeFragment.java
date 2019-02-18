@@ -51,32 +51,60 @@ public class AddEmployeeFragment extends Fragment {
 
         binding.acbSave.setOnClickListener(v -> {
 
-            String name = binding.etName.getText().toString();
+            //General information
+
+            String firstName = binding.etFirstName.getText().toString();
+            String lastName = binding.etLastName.getText().toString();
+
             String emailId = binding.etEmailId.getText().toString();
-            String designation = binding.etDesignation.getText().toString();
+
+            String esiNumber = binding.etESINumber.getText().toString();
+            String pfNumber = binding.etPFNumber.getText().toString();
 
 
-            if (name.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Name is empty", Snackbar.LENGTH_LONG).show();
+
+            //String designation = binding.etDesignation.getText().toString();
+
+
+            if (firstName.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "First Name is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if (designation.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Designation is empty", Snackbar.LENGTH_LONG).show();
+            if (lastName.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Last Name is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
+
 
             if (emailId.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailId).matches()) {
                 Snackbar.make(binding.getRoot(), "Email id is empty or incorrect", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
+
+            if (esiNumber.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "ESI Number is empty", Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+            if (pfNumber.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "PF Number is empty", Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+
+
+
+
+
+
             v.setEnabled(false);
 
 
             Map<String, Object> user = new HashMap<>();
-            user.put("name", name);
-            user.put("designation", designation);
+            user.put("name", firstName +" "+ lastName);
+            user.put("designation", pfNumber);
             user.put("email", emailId);
 
             String docId = String.valueOf(new Random().nextInt(3) + 1);
