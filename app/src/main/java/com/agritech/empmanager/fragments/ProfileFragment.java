@@ -6,17 +6,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.agritech.empmanager.LoginActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentCalendarBinding;
 import com.agritech.empmanager.databinding.FragmentProfileBinding;
 import com.agritech.empmanager.mcalendar.CompactCalendarView;
 import com.agritech.empmanager.mcalendar.domain.Event;
+import com.agritech.empmanager.utils.PrefUtilities;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -28,6 +38,9 @@ public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
     AppCompatActivity activity;
+    FirebaseFirestore db;
+
+    String name = "Profile", designation, emailId;
 
 
     public ProfileFragment() {
@@ -44,6 +57,7 @@ public class ProfileFragment extends Fragment {
         //for create home button
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(binding.toolbar);
+        db = FirebaseFirestore.getInstance();
 
 
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -56,7 +70,7 @@ public class ProfileFragment extends Fragment {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    binding.toolbarLayout.setTitle("Vamsi Krishna Paladugu");
+                    binding.toolbarLayout.setTitle(name);
                     isShow = true;
                 } else if (isShow) {
                     binding.toolbarLayout.setTitle(" ");
@@ -65,6 +79,34 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
+        if (mListener != null) {
+            String uid = PrefUtilities.with(getActivity()).getUserId();
+
+
+            db.collection("Employees").document(uid).get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        name = document.getString("name");
+                        designation = document.getString("designation");
+                        emailId = document.getString("email");
+
+                        binding.tvName.setText(name);
+                        binding.tvDesignation.setText(designation);
+                        binding.tvEmailId.setText(emailId);
+
+                        //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        //Log.d(TAG, "No such document");
+                    }
+                } else {
+                    //Log.d(TAG, "get failed with ", task.getException());
+                }
+            });
+
+        }
 
         return binding.getRoot();
     }

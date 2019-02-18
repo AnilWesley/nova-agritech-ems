@@ -7,4 +7,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="colorPrimaryAddEmploye">#2196F3</color>
+    <color name="colorPrimaryDarkAddEmploye">#1976D2</color>
+
 </resources>

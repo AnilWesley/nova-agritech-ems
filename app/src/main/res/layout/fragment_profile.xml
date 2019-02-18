@@ -50,20 +50,22 @@
 
 
                         <TextView
+                            android:id="@+id/tvName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:text="Vamsi Krishna Paladugu"
+                            android:text=""
                             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                             android:textColor="@color/colorBlack"
                             android:textSize="20sp" />
 
                         <TextView
+                            android:id="@+id/tvDesignation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="18dp"
                             android:gravity="center_horizontal"
-                            android:text="Graphic designer"
+                            android:text=""
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -86,594 +88,592 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="6dp"
-                android:text="Employment details"
-                android:textAllCaps="true"
-                android:textColor="@color/colorBlack" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#6aaa" />
-
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Employment details"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#6aaa" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/aivBirthday"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"
-                            android:src="@drawable/ic_outline_work_outline_24px" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="16dp"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:id="@+id/llBirthday"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/tvBirthday"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Marketing"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
-                                    <TextView
-                                        android:id="@+id/tvBirthdayCap"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Department name"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/tvLineBirthday"
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:textAlignment="viewStart" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"/>
-
+                        android:layout_marginLeft="6dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/aivBirthday"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="@dimen/common_margin_padding"
+                                android:src="@drawable/ic_outline_work_outline_24px" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="16dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:id="@+id/llBirthday"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvBirthday"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Marketing"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+                                        <TextView
+                                            android:id="@+id/tvBirthdayCap"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Department name"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tvLineBirthday"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_marginStart="@dimen/common_margin_padding"
+                                    android:layout_marginLeft="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="#2aaa"
+                                    android:gravity="start"
+                                    android:textAlignment="viewStart" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="@dimen/common_margin_padding" />
 
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
 
                                 <LinearLayout
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
+                                    android:layout_marginTop="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:orientation="horizontal">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
+                                    <LinearLayout
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="112086"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="112086"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Employee id"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Employee id"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                    </LinearLayout>
+
 
                                 </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_marginStart="@dimen/common_margin_padding"
+                                    android:layout_marginLeft="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="#2aaa"
+                                    android:gravity="start"
+                                    android:textAlignment="viewStart" />
 
 
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:textAlignment="viewStart" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="@dimen/common_margin_padding" />
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvEmailId"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text=""
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Email id"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_marginStart="@dimen/common_margin_padding"
+                                    android:layout_marginLeft="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="#2aaa"
+                                    android:gravity="start"
+                                    android:textAlignment="viewStart" />
+
+
+                            </LinearLayout>
 
 
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="@dimen/common_margin_padding" />
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Hyderabad"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="start"
+                                            android:paddingStart="@dimen/common_margin_padding"
+                                            android:paddingLeft="@dimen/common_margin_padding"
+                                            android:text="Work location"
+                                            android:textAlignment="viewStart"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:layout_marginStart="@dimen/common_margin_padding"
+                                    android:layout_marginLeft="@dimen/common_margin_padding"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="#2aaa"
+                                    android:gravity="start"
+                                    android:textAlignment="viewStart"
+                                    android:visibility="gone" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <!-- <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:orientation="horizontal">
+
+
+                             <androidx.appcompat.widget.AppCompatImageView
+                                 android:layout_width="48dp"
+                                 android:layout_height="48dp"
+                                 android:padding="@dimen/common_margin_padding"/>
+
+
+                             <LinearLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="1"
+                                 android:gravity="center_vertical"
+                                 android:orientation="vertical">
+
+
+                                 <LinearLayout
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:layout_marginTop="@dimen/common_margin_padding"
+                                     android:layout_marginBottom="8dp"
+                                     android:orientation="horizontal">
+
+                                     <LinearLayout
+                                         android:layout_width="0dp"
+                                         android:layout_height="wrap_content"
+                                         android:layout_weight="1"
+                                         android:orientation="vertical">
+
+                                         <TextView
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:gravity="start"
+                                             android:paddingStart="@dimen/common_margin_padding"
+                                             android:paddingLeft="@dimen/common_margin_padding"
+                                             android:text="EH001216567"
+                                             android:textAlignment="viewStart"
+                                             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+                                         <TextView
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:gravity="start"
+                                             android:paddingStart="@dimen/common_margin_padding"
+                                             android:paddingLeft="@dimen/common_margin_padding"
+                                             android:text="E.S.I. Number"
+                                             android:textAlignment="viewStart"
+                                             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                     </LinearLayout>
+
+
+                                 </LinearLayout>
+
+                                 <TextView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="1px"
+                                     android:layout_marginStart="@dimen/common_margin_padding"
+                                     android:layout_marginLeft="@dimen/common_margin_padding"
+                                     android:layout_marginBottom="8dp"
+                                     android:background="#2aaa"
+                                     android:gravity="start"
+                                     android:textAlignment="viewStart" />
+
+
+                             </LinearLayout>
+
+
+
+                         </LinearLayout>
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:orientation="horizontal">
+
+
+                             <androidx.appcompat.widget.AppCompatImageView
+                                 android:id="@+id/aivAge"
+                                 android:layout_width="48dp"
+                                 android:layout_height="48dp"
+                                 android:padding="@dimen/common_margin_padding"/>
+
+
+                             <LinearLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="1"
+                                 android:gravity="center_vertical"
+                                 android:orientation="vertical">
+
+
+                                 <LinearLayout
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:layout_marginTop="@dimen/common_margin_padding"
+                                     android:layout_marginBottom="8dp"
+                                     android:orientation="horizontal">
+
+                                     <LinearLayout
+                                         android:layout_width="0dp"
+                                         android:layout_height="wrap_content"
+                                         android:layout_weight="1"
+                                         android:orientation="vertical">
+
+                                         <TextView
+                                             android:id="@+id/tvAge"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:gravity="start"
+                                             android:paddingStart="@dimen/common_margin_padding"
+                                             android:paddingLeft="@dimen/common_margin_padding"
+                                             android:text="121557ZS4"
+                                             android:textAlignment="viewStart"
+                                             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+                                         <TextView
+                                             android:id="@+id/tvAgeCap"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:gravity="start"
+                                             android:paddingStart="@dimen/common_margin_padding"
+                                             android:paddingLeft="@dimen/common_margin_padding"
+                                             android:text="P.F. Number"
+                                             android:textAlignment="viewStart"
+                                             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                                     </LinearLayout>
+
+
+                                 </LinearLayout>
+
+                                 <TextView
+                                     android:layout_width="match_parent"
+                                     android:layout_height="1px"
+                                     android:layout_marginStart="@dimen/common_margin_padding"
+                                     android:layout_marginLeft="@dimen/common_margin_padding"
+                                     android:layout_marginBottom="8dp"
+                                     android:background="#2aaa"
+                                     android:gravity="start"
+                                     android:textAlignment="viewStart" />
+
+
+                             </LinearLayout>
+
+
+
+                         </LinearLayout>-->
 
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"/>
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="vamsi@novaagritech.com"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Email id"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                                </LinearLayout>
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:textAlignment="viewStart" />
-
-
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"/>
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Hyderabad"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="Work location"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                                </LinearLayout>
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:visibility="gone"
-                                android:textAlignment="viewStart" />
-
-
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>
-
-                   <!-- <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"/>
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="EH001216567"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="E.S.I. Number"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                                </LinearLayout>
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:textAlignment="viewStart" />
-
-
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/aivAge"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/common_margin_padding"/>
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/tvAge"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="121557ZS4"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
-                                    <TextView
-                                        android:id="@+id/tvAgeCap"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="start"
-                                        android:paddingStart="@dimen/common_margin_padding"
-                                        android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text="P.F. Number"
-                                        android:textAlignment="viewStart"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                                </LinearLayout>
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginStart="@dimen/common_margin_padding"
-                                android:layout_marginLeft="@dimen/common_margin_padding"
-                                android:layout_marginBottom="8dp"
-                                android:background="#2aaa"
-                                android:gravity="start"
-                                android:textAlignment="viewStart" />
-
-
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>-->
 
                 </LinearLayout>
 
-            </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Personal details"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="6dp"
-                android:text="Personal details"
-                android:textAllCaps="true"
-                android:textColor="@color/colorBlack" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#6aaa" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:padding="@dimen/common_margin_padding"
-                    android:src="@drawable/ic_outline_account_circle_24px" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#6aaa" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding"
+                        android:src="@drawable/ic_outline_account_circle_24px" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_margin_padding"
-                        android:layout_marginBottom="16dp"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:paddingStart="@dimen/common_margin_padding"
-                                android:paddingLeft="@dimen/common_margin_padding"
-                                android:text="29 Aug, 1994"
-                                android:textAlignment="viewStart"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="29 Aug, 1994"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:paddingStart="@dimen/common_margin_padding"
-                                android:paddingLeft="@dimen/common_margin_padding"
-                                android:text="Date of birth"
-                                android:textAlignment="viewStart"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Date of birth"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                    </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:layout_marginStart="@dimen/common_margin_padding"
-                        android:layout_marginLeft="@dimen/common_margin_padding"
-                        android:layout_marginBottom="8dp"
-                        android:background="#2aaa"
-                        android:gravity="start"
-                        android:textAlignment="viewStart" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 

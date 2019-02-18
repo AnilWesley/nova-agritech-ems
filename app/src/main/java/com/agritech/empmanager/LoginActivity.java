@@ -66,25 +66,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
         mAuth.signInWithEmailAndPassword(userEmail, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(this, task -> {
 
-                        view.setVisibility(View.VISIBLE);
-                        binding.pbLoading.setVisibility(View.GONE);
+                    view.setVisibility(View.VISIBLE);
+                    binding.pbLoading.setVisibility(View.GONE);
 
 
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Snackbar.make(binding.getRoot(), "Failed " + task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Snackbar.make(binding.getRoot(), "Failed " + task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
 
-                        }
-
-                        // ...
                     }
+
+                    // ...
                 });
 
 
@@ -93,13 +90,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(final FirebaseUser user) {
 
-        Home.start(LoginActivity.this);
+       /* Home.start(LoginActivity.this);
         finish();
         if (true)
-            return;
+            return;*/
 
-        if (user == null)
+        if (user == null) {
             return;
+        }
 
         user.getIdToken(true).addOnSuccessListener(result -> {
             String idToken = result.getToken().split("\\.")[1];
@@ -110,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(new String(data, "UTF-8"));
 
                 //String client = jsonObject.getJSONArray("type").getString(0);
-                String type = jsonObject.getString("type");
+                String type = jsonObject.getString("status");
 
 
                /* if (type.equals("" + 2)) {
@@ -148,6 +146,12 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            binding.llBody.setVisibility(View.VISIBLE);
+        } else {
+            binding.llBody.setVisibility(View.GONE);
+        }
         updateUI(currentUser);
 
     }

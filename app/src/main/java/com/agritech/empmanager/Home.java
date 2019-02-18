@@ -80,6 +80,20 @@ public class Home extends AppCompatActivity implements
     }
 
     @Override
+    public void onDashboardFragmentInteractionAddEmployee() {
+
+        AddEmployeeActivity.start(this);
+
+    }
+
+    @Override
+    public void onDashboardFragmentInteractionLogout() {
+        FirebaseAuth.getInstance().signOut();
+        LoginActivity.start(this, 0);
+        finish();
+    }
+
+    @Override
     public void onCalendarFragmentInteraction(String uri) {
         setTitle(uri);
     }

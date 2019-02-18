@@ -36,4 +36,14 @@
 
     </style>
 
+    <style name="AppThemeAddEmployee" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryAddEmploye</item>
+        <item name="colorAccent">@color/colorPrimaryAddEmploye</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkAddEmploye</item>
+
+        <item name="android:fontFamily">@font/opensans_regular</item>
+
+    </style>
+
 </resources>

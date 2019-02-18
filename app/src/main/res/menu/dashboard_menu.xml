@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="example.javatpoint.com.optionmenu.MainActivity">
-
-    <item  android:id="@+id/menuDashbord"
-        android:title="Dashboard"
-        android:icon="@drawable/ic_outline_dashboard_24px"/>
-    <item  android:id="@+id/menuCalender"
-        android:title="Calender"
-        android:icon="@drawable/ic_outline_today_24px"/>
-    <item  android:id="@+id/menuNotifications"
+    
+    <item
+        android:id="@+id/menuLogout"
+        android:icon="@drawable/ic_outline_today_24px"
+        android:title="Logout" />
+    <item
+        android:id="@+id/menuNotifications"
+        android:icon="@drawable/ic_outline_notifications_24px"
         android:title="Notifications"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_outline_notifications_24px"/>
+        app:showAsAction="always" />
 </menu>

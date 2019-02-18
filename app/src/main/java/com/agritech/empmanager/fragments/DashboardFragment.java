@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.agritech.empmanager.AddEmployeeActivity;
+import com.agritech.empmanager.LoginActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentDashbordBinding;
+import com.agritech.empmanager.utils.Constants;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +27,7 @@ public class DashboardFragment extends Fragment {
     private OnDashboardFragmentInteractionListener mListener;
 
     FragmentDashbordBinding binding;
+
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -49,11 +55,6 @@ public class DashboardFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onDashboardFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -76,13 +77,43 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
-        inflater.inflate(R.menu.dashboard_menu,menu);
+        if (Constants.type.equals("1"))
+            inflater.inflate(R.menu.hr_dashboard_menu, menu);
+
+        else
+            inflater.inflate(R.menu.dashboard_menu, menu);
+
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int menuId = item.getItemId();
+
+        if (menuId == R.id.menuAddEmployee) {
+
+            if (mListener != null)
+                mListener.onDashboardFragmentInteractionAddEmployee();
+
+        } else if (menuId == R.id.menuLogout){
+
+            if (mListener != null)
+                mListener.onDashboardFragmentInteractionLogout();
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public interface OnDashboardFragmentInteractionListener {
         // TODO: Update argument type and name
         void onDashboardFragmentInteraction(Uri uri);
+
+        void onDashboardFragmentInteractionAddEmployee();
+        void onDashboardFragmentInteractionLogout();
     }
 }
