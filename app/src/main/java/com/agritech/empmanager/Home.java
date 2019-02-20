@@ -80,6 +80,11 @@ public class Home extends AppCompatActivity implements
     }
 
     @Override
+    public void onDashboardFragmentInteractionViewEmployees() {
+        EmployeesActivity.start(this);
+    }
+
+    @Override
     public void onDashboardFragmentInteractionAddEmployee() {
 
         AddEmployeeActivity.start(this);

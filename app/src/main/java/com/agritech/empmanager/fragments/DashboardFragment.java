@@ -98,6 +98,12 @@ public class DashboardFragment extends Fragment {
             if (mListener != null)
                 mListener.onDashboardFragmentInteractionAddEmployee();
 
+        } else if (menuId == R.id.menuViewEmployees){
+
+            if (mListener != null)
+                mListener.onDashboardFragmentInteractionViewEmployees();
+
+
         } else if (menuId == R.id.menuLogout){
 
             if (mListener != null)
@@ -112,7 +118,7 @@ public class DashboardFragment extends Fragment {
     public interface OnDashboardFragmentInteractionListener {
         // TODO: Update argument type and name
         void onDashboardFragmentInteraction(Uri uri);
-
+        void onDashboardFragmentInteractionViewEmployees();
         void onDashboardFragmentInteractionAddEmployee();
         void onDashboardFragmentInteractionLogout();
     }

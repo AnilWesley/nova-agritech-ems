@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentAddEmployeeBinding;
+import com.agritech.empmanager.databinding.FragmentAddEmployeeNewBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -34,7 +35,7 @@ public class AddEmployeeFragment extends Fragment {
     private OnAddEmployeeFragmentInteractionListener mListener;
 
 
-    FragmentAddEmployeeBinding binding;
+    FragmentAddEmployeeNewBinding binding;
     FirebaseFirestore db;
 
     public AddEmployeeFragment() {
@@ -45,7 +46,7 @@ public class AddEmployeeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_employee, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_employee_new, container, false);
 
         db = FirebaseFirestore.getInstance();
 
@@ -58,9 +59,8 @@ public class AddEmployeeFragment extends Fragment {
 
             String emailId = binding.etEmailId.getText().toString();
 
-            String esiNumber = binding.etESINumber.getText().toString();
-            String pfNumber = binding.etPFNumber.getText().toString();
-
+            String designation = binding.etDesignation.getText().toString();
+            String department = "";//binding.spDepartment.getSelectedItem().toString();
 
 
             //String designation = binding.etDesignation.getText().toString();
@@ -83,34 +83,31 @@ public class AddEmployeeFragment extends Fragment {
             }
 
 
-            if (esiNumber.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "ESI Number is empty", Snackbar.LENGTH_LONG).show();
+            if (designation.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Designation is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if (pfNumber.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "PF Number is empty", Snackbar.LENGTH_LONG).show();
+            if (department.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Department is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
-
-
-
-
-
 
 
             v.setEnabled(false);
 
 
             Map<String, Object> user = new HashMap<>();
-            user.put("name", firstName +" "+ lastName);
-            user.put("designation", pfNumber);
+            user.put("fName", firstName);
+            user.put("lName", lastName);
             user.put("email", emailId);
+            user.put("designation", designation);
+            user.put("department", department);
 
             String docId = String.valueOf(new Random().nextInt(3) + 1);
 
-            db.collection("addEmployee").document(docId).set(user)
-                    .addOnSuccessListener(documentRef6erence -> {
+            db.collection("metadata/employees/createEmployee").document(docId).set(user)
+                    .addOnSuccessListener(documentReference -> {
 
                         if (mListener != null)
                             mListener.onAddEmployeeFragmentInteraction();

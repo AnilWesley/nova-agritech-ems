@@ -10,22 +10,22 @@
     </style>
 
 
-   <!-- &lt;!&ndash;App theme pro&ndash;&gt;
-    <style name="AppThemePro" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- &lt;!&ndash;App theme pro&ndash;&gt;
+     <style name="AppThemePro" parent="Theme.AppCompat.Light.DarkActionBar">
 
-        <item name="colorPrimary">@color/md_amber_500</item>
-        <item name="colorPrimaryDark">@color/md_amber_700</item>
-        <item name="colorAccent">@color/colorAccent</item>
+         <item name="colorPrimary">@color/md_amber_500</item>
+         <item name="colorPrimaryDark">@color/md_amber_700</item>
+         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+         <item name="windowActionBar">false</item>
+         <item name="windowNoTitle">true</item>
 
-    </style>
+     </style>
 
-    <style name="AppThemePro.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+     <style name="AppThemePro.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppThemePro.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    -->
+     <style name="AppThemePro.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+     -->
 
 
     <style name="AppThemeLogin" parent="Theme.AppCompat.Light.NoActionBar">
@@ -45,5 +45,17 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
 
     </style>
+
+
+    <style name="AppThemeViewEmployee" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <item name="android:fontFamily">@font/opensans_regular</item>
+
+    </style>
+
 
 </resources>
