@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="com.agritech.empmanager.fastpojo.FastEmployee" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/llitemContent"
+            android:layout_width="match_parent"
+            android:layout_height="?android:listPreferredItemHeight"
+            android:orientation="horizontal">
+
+
+            <com.agritech.empmanager.imgtransitionlib.TransitionImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                app:tiv_rounding="1" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{employee.fName + ` ` +employee.lName}"
+                    android:textColor="@color/colorTejaTitle"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/employee_subtext(employee.department,employee.designation)}" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="76dp"
+            android:background="#33aaaaaa" />
+
+    </LinearLayout>
+
+</layout>

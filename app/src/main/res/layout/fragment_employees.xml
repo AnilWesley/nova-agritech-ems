@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:id="@+id/ivEmptyView"
+            android:id="@+id/tvEmptyView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

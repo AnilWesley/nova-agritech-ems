@@ -2,7 +2,7 @@ package com.agritech.empmanager.utils;
 
 public class Constants {
 
-    public static final int ORDER_VIEW_ID = 10001;
+    public static final int FAST_EMPLOYEE_ID = 10001;
     public static final int CONTACT_ID = 10002;
     public static final int CATEGORY_ID = 10003;
     public static final int SUB_CATEGORY_ID = 10004;

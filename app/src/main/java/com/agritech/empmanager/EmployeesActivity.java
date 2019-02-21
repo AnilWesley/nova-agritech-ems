@@ -8,8 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.agritech.empmanager.databinding.ActivityEmployeesBinding;
+import com.agritech.empmanager.fragments.EmployeesFragment;
 
-public class EmployeesActivity extends AppCompatActivity {
+public class EmployeesActivity extends AppCompatActivity implements EmployeesFragment.OnEmployeesFragmentInteractionListener {
 
 
     public static void start(Context context) {
@@ -27,6 +28,10 @@ public class EmployeesActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, new EmployeesFragment()).commit();
+
+
         setTitle("Employees");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,5 +39,8 @@ public class EmployeesActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onEmployeesFragmentInteraction() {
 
+    }
 }

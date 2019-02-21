@@ -11,4 +11,8 @@
     <color name="colorPrimaryAddEmploye">#2196F3</color>
     <color name="colorPrimaryDarkAddEmploye">#1976D2</color>
 
+
+    <color name="colorTejaTitle">#2f3538</color>
+    <color name="colorTejaSubItem">#5b6c73</color>
+
 </resources>

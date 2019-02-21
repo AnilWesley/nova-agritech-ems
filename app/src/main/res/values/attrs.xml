@@ -30,4 +30,14 @@
         <attr name="compactCalendarShouldSelectFirstDayOfMonthOnScroll" format="boolean"/>
         <attr name="compactCalendarOtherMonthDaysTextColor" format="color"/>
     </declare-styleable>
+
+
+    <declare-styleable name="TransitionImageView">
+        <!-- Amount of rounding to apply. Assign `0f`
+             to have to no rounding at all.
+             Use `1f` to have perfectly rounded edges.
+             Values in-between will be interpolated. -->
+        <attr name="tiv_rounding" format="float" />
+    </declare-styleable>
+
 </resources>
