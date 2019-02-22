@@ -1,5 +1,6 @@
 package com.agritech.empmanager.fastpojo;
 
+import android.util.Log;
 import android.view.View;
 
 import com.agritech.empmanager.R;
@@ -8,6 +9,7 @@ import com.agritech.empmanager.textdrawable.ColorGenerator;
 import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.Constants;
 import com.agritech.empmanager.utils.GlideApp;
+import com.google.firebase.storage.StorageReference;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 
@@ -24,6 +26,8 @@ public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHo
     public String designation;
     public String department;
     public String uid;
+
+    public StorageReference sRef;
 
     public FastEmployee() {
     }
@@ -75,9 +79,10 @@ public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHo
                     .width(100)
                     .endConfig()
                     .buildRect(employee.fName.charAt(0) + "", ColorGenerator.MATERIAL.getColor(employee.fName));
-            //GlideApp.with(binding.ivProfile).load(drawable).into(binding.ivProfile);
+            GlideApp.with(binding.ivProfile).load(employee.sRef).placeholder(drawable).into(binding.ivProfile);
 
-            binding.ivProfile.setImageDrawable(drawable);
+
+            //binding.ivProfile.setImageDrawable(drawable);
 
             binding.setEmployee(employee);
 

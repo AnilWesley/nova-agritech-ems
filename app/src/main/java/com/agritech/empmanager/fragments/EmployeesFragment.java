@@ -3,6 +3,7 @@ package com.agritech.empmanager.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,8 @@ import com.agritech.empmanager.databinding.FragmentEmployeesBinding;
 import com.agritech.empmanager.fastpojo.FastEmployee;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.IAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
@@ -38,6 +41,8 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
     ItemAdapter itemAdapter;
     FirebaseFirestore db;
 
+    StorageReference storageReference;
+
     public EmployeesFragment() {
         // Required empty public constructor
     }
@@ -55,7 +60,7 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_employees, container, false);
 
         db = FirebaseFirestore.getInstance();
-
+        storageReference = FirebaseStorage.getInstance().getReference().child("profilePic/");
         binding.rvEmployees.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.rvEmployees.setHasFixedSize(true);
 
@@ -86,7 +91,7 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
                         if (dc.getType() == DocumentChange.Type.ADDED) {
 
                             FastEmployee employee = dc.getDocument().toObject(FastEmployee.class);
-
+                            employee.sRef = storageReference.child(employee.uid+".jpg");
 
                             itemAdapter.add(employee);
 

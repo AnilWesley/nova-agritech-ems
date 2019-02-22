@@ -32,6 +32,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ProgressBar
+                        android:id="@+id/pBarUpload"
+                        android:layout_width="154dp"
+                        android:layout_height="154dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
+                        android:indeterminateDrawable="@drawable/progressbar_circular"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -39,24 +48,24 @@
                         android:orientation="vertical">
 
 
-                      <!--  <com.agritech.empmanager.imgtransitionlib.TransitionImageView
-                            android:id="@+id/ivProfile"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="16dp"
-                            app:tiv_rounding="1" />-->
+                        <!--  <com.agritech.empmanager.imgtransitionlib.TransitionImageView
+                              android:id="@+id/ivProfile"
+                              android:layout_width="150dp"
+                              android:layout_height="150dp"
+                              android:layout_gravity="center_horizontal"
+                              android:layout_marginLeft="16dp"
+                              app:tiv_rounding="1" />-->
 
 
-                        <com.agritech.empmanager.imgtransitionlib.TransitionImageView
+                        .<com.agritech.empmanager.imgtransitionlib.TransitionImageView
                             android:id="@+id/ivProfile"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="12dp"
                             android:padding="24dp"
-                            app:tiv_rounding="1"
-                            android:src="@drawable/profile" />
+                            android:src="@drawable/profile"
+                            app:tiv_rounding="1" />
 
 
                         <TextView
@@ -110,28 +119,27 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
                         android:text="Basic Information"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack" />
 
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivEditBasicInfo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="18dp"
-                        android:padding="6dp"
                         android:layout_marginRight="12dp"
+                        android:padding="6dp"
                         android:src="@drawable/ic_outline_edit_24px" />
 
 
                 </LinearLayout>
-
-
 
 
                 <TextView
@@ -627,23 +635,23 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
                         android:text="Work Information"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivEditWorkInfo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:padding="6dp"
                         android:layout_marginRight="12dp"
+                        android:padding="6dp"
                         android:src="@drawable/ic_outline_edit_24px" />
 
                 </LinearLayout>
-
 
 
                 <TextView
@@ -879,35 +887,35 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
                         android:text="Personal Information"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivEditPersonalInfo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:padding="6dp"
                         android:layout_marginRight="12dp"
+                        android:padding="6dp"
                         android:src="@drawable/ic_outline_edit_24px" />
 
                 </LinearLayout>
 
 
-
-             <!--   <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginBottom="6dp"
-                    android:text="Personal Information"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorBlack" />
--->
+                <!--   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="18dp"
+                       android:layout_marginTop="36dp"
+                       android:layout_marginBottom="6dp"
+                       android:text="Personal Information"
+                       android:textAllCaps="true"
+                       android:textColor="@color/colorBlack" />
+   -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -1221,36 +1229,37 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
                         android:text="Dependent Details"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivEditDependentInfo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:padding="6dp"
                         android:layout_marginRight="12dp"
+                        android:padding="6dp"
                         android:src="@drawable/ic_outline_edit_24px" />
 
                 </LinearLayout>
 
 
-<!--
+                <!--
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginBottom="6dp"
-                    android:text="Dependent Details"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorBlack" />
--->
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="36dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:text="Dependent Details"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack" />
+                -->
 
 
                 <TextView
@@ -1566,34 +1575,35 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
                         android:text="Leave Directory"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivEditLeaveInfo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:padding="6dp"
                         android:layout_marginRight="12dp"
+                        android:padding="6dp"
                         android:src="@drawable/ic_outline_edit_24px" />
 
                 </LinearLayout>
 
 
-               <!-- <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginBottom="6dp"
-                    android:text="Leave Directory"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorBlack" />
--->
+                <!-- <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginLeft="18dp"
+                     android:layout_marginTop="36dp"
+                     android:layout_marginBottom="6dp"
+                     android:text="Leave Directory"
+                     android:textAllCaps="true"
+                     android:textColor="@color/colorBlack" />
+ -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -2026,7 +2036,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tvWorkExperances"
+                                    android:id="@+id/tvWorkExperiences"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="start"
