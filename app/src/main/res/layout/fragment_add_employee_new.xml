@@ -40,22 +40,25 @@
                 android:orientation="vertical">
 
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Department"
-                    android:inputType="textPersonName"
-                    android:textSize="16sp">v
+                    android:textSize="16sp"
+                    android:inputType="textPersonName">
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:id="@+id/etDepartment"
-                        style="@android:style/Widget.Holo.Light.Spinner"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:focusableInTouchMode="false"
                         android:cursorVisible="false"
-                        android:drawablePadding="12dp"
-                        android:focusableInTouchMode="false" />
+                        android:focusable="false"
+                        android:lines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,6 +114,7 @@
                         android:lines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
 
 
                 <com.google.android.material.textfield.TextInputLayout

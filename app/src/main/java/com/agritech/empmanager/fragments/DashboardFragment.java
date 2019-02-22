@@ -10,12 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.agritech.empmanager.AddEmployeeActivity;
-import com.agritech.empmanager.LoginActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentDashbordBinding;
 import com.agritech.empmanager.utils.Constants;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

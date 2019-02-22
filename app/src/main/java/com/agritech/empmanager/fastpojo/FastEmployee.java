@@ -23,6 +23,7 @@ public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHo
     public String email;
     public String designation;
     public String department;
+    public String uid;
 
     public FastEmployee() {
     }
@@ -88,5 +89,11 @@ public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHo
             binding.setEmployee(null);
         }
     }
+
+
+
+
+
+
 
 }

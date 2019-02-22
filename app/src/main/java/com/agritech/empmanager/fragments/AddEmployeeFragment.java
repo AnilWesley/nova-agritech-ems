@@ -3,9 +3,12 @@ package com.agritech.empmanager.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentAddEmployeeBinding;
@@ -60,7 +63,7 @@ public class AddEmployeeFragment extends Fragment {
             String emailId = binding.etEmailId.getText().toString();
 
             String designation = binding.etDesignation.getText().toString();
-            String department = "";//binding.spDepartment.getSelectedItem().toString();
+            String department = binding.etDepartment.getText().toString();
 
 
             //String designation = binding.etDesignation.getText().toString();
@@ -123,6 +126,21 @@ public class AddEmployeeFragment extends Fragment {
 
         });
 
+
+
+        ArrayAdapter arrayAdapter= new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.eventtypes));
+        binding.etDepartment.setAdapter(arrayAdapter);
+        binding.etDepartment.setInputType(0);
+
+
+
+        binding.etDepartment.setOnClickListener(v -> binding.etDepartment.showDropDown());
+
+     /*   binding.etDepartment.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus)
+                binding.etDepartment.showDropDown();
+        });
+*/
 
         return binding.getRoot();
     }

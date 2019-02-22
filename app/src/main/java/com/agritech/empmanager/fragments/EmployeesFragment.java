@@ -1,7 +1,6 @@
 package com.agritech.empmanager.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -12,22 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.agritech.empmanager.R;
+import com.agritech.empmanager.ViewEmployeeActivity;
 import com.agritech.empmanager.databinding.FragmentEmployeesBinding;
 import com.agritech.empmanager.fastpojo.FastEmployee;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.mikepenz.fastadapter.FastAdapter;
-import com.mikepenz.fastadapter.IItem;
-import com.mikepenz.fastadapter.IItemAdapter;
+import com.mikepenz.fastadapter.IAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
+import com.mikepenz.fastadapter.listeners.OnClickListener;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.databinding.DataBindingUtil;
@@ -102,6 +95,13 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
                     }
 
                 });
+
+
+        fastAdapter.withSelectable(true);
+        fastAdapter.withOnClickListener((OnClickListener<FastEmployee>) (v, adapter, item, position) -> {
+            ViewEmployeeActivity.start(getActivity(),item);
+            return true;
+        });
 
 
         return binding.getRoot();
