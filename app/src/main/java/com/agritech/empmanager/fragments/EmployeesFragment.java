@@ -104,7 +104,9 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
 
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastEmployee>) (v, adapter, item, position) -> {
-            ViewEmployeeActivity.start(getActivity(),item);
+            ViewEmployeeActivity.start(getActivity(),item,v.findViewById(R.id.ivProfile));
+
+
             return true;
         });
 

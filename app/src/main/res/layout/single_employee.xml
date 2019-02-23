@@ -29,6 +29,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
+                android:transitionName="@string/profile_transition_name"
                 app:tiv_rounding="1" />
 
 

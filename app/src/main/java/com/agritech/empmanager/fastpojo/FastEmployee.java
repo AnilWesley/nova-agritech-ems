@@ -78,7 +78,7 @@ public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHo
                     .height(100)
                     .width(100)
                     .endConfig()
-                    .buildRect(employee.fName.charAt(0) + "", ColorGenerator.MATERIAL.getColor(employee.fName));
+                    .buildRect(employee.fName.charAt(0) + "", ColorGenerator.MATERIAL.getColor(employee.fName+" "+employee.lName));
             GlideApp.with(binding.ivProfile).load(employee.sRef).placeholder(drawable).into(binding.ivProfile);
 
 
