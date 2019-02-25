@@ -20,12 +20,61 @@ import androidx.annotation.NonNull;
 
 public class FastEmployee extends AbstractItem<FastEmployee, FastEmployee.ViewHolder> {
 
+
+    /*Basic info*/
+
+    public String uid;
+    public String empId;
+
     public String fName;
     public String lName;
+
     public String email;
+
+    public String esiNumber;
+    public String pfNumber;
+
+
+
+    /*Work info*/
+
     public String designation;
     public String department;
-    public String uid;
+    public String sourceOfHire;
+    public String reportingToName;
+    public String reportingToUID;
+
+
+    /*Work Location*/
+    public String state;
+    public String distic;
+    public String mandal;
+    public String village;
+    public String headQuarters;
+
+
+    /*Personal info*/
+    public String phone;
+    public String dob;
+    public String maritalStatus;
+    public String address;
+
+
+    /*Dependent info*/
+    public String depName;
+    public String depRelationship;
+    public String depDOB;
+    public String depOccupation;
+
+
+    /*Leaves info*/
+    public String casualLeaves;
+    public String sickLeaves;
+    public String annualLeaves;
+    public String maternalLeaves;
+    public String paternalLeaves;
+
+
 
     public StorageReference sRef;
 

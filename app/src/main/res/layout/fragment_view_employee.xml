@@ -3,6 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+    <data>
+
+        <variable
+            name="emp"
+            type="com.agritech.empmanager.pojo.Emp" />
+
+    </data>
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -101,7 +110,7 @@
                                         android:gravity="start"
                                         android:paddingStart="@dimen/common_margin_padding"
                                         android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text=""
+                                        android:text="@{emp.empId}"
                                         android:textAlignment="viewStart"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                         tools:text="1122125" />
@@ -177,7 +186,7 @@
                                         android:gravity="start"
                                         android:paddingStart="@dimen/common_margin_padding"
                                         android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text=""
+                                        android:text="@{emp.email}"
                                         android:textAlignment="viewStart"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                         tools:text="vamsi@novaagritech.com" />
@@ -254,7 +263,7 @@
                                         android:gravity="start"
                                         android:paddingStart="@dimen/common_margin_padding"
                                         android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text=""
+                                        android:text="@{emp.esiNumber}"
                                         android:textAlignment="viewStart"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                         tools:text="1255448756" />
@@ -331,7 +340,7 @@
                                         android:gravity="start"
                                         android:paddingStart="@dimen/common_margin_padding"
                                         android:paddingLeft="@dimen/common_margin_padding"
-                                        android:text=""
+                                        android:text="@{emp.pfNumber}"
                                         android:textAlignment="viewStart"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                         tools:text="PF100225466" />
@@ -599,7 +608,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.department}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Marketing" />
@@ -675,7 +684,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.sourceOfHire}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Naukri.com" />
@@ -746,13 +755,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/tvWorkLocation"
+                                android:id="@+id/tvReportingTo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.reportingToName}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Hyderabad" />
@@ -764,7 +773,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text="Work Location"
+                                android:text="Reporting To"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -862,7 +871,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.phone}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="9603664433" />
@@ -938,7 +947,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.dob}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="29 Aug,1994" />
@@ -1015,7 +1024,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.maritalStatus}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Single" />
@@ -1092,7 +1101,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.address}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="D.No:1-6, Velpucharla post, musunuru mandal,Krishna dist, AP-521207" />
@@ -1207,7 +1216,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.depName}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="P.Srinavasa rao" />
@@ -1283,7 +1292,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.depRelationship}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Father" />
@@ -1360,7 +1369,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.depDOB}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="03 Jan,1970" />
@@ -1437,7 +1446,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.depOccupation}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="Farmar" />
@@ -1550,7 +1559,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.casualLeaves}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="12" />
@@ -1626,7 +1635,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.sickLeaves}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="12" />
@@ -1703,7 +1712,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.annualLeaves}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="30" />
@@ -1780,7 +1789,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.maternalLeaves}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="6" />
@@ -1857,7 +1866,7 @@
                                 android:gravity="start"
                                 android:paddingStart="@dimen/common_margin_padding"
                                 android:paddingLeft="@dimen/common_margin_padding"
-                                android:text=""
+                                android:text="@{emp.paternalLeaves}"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 tools:text="3" />

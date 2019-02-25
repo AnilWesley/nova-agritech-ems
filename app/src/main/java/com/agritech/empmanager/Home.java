@@ -17,6 +17,15 @@ import com.agritech.empmanager.fragments.DashboardFragment;
 import com.agritech.empmanager.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Home extends AppCompatActivity implements
         DashboardFragment.OnDashboardFragmentInteractionListener,
@@ -82,6 +91,11 @@ public class Home extends AppCompatActivity implements
     @Override
     public void onDashboardFragmentInteractionViewEmployees() {
         EmployeesActivity.start(this);
+    }
+
+    @Override
+    public void onDashboardFragmentInteractionDepartments() {
+        DepartmentsActivity.start(this);
     }
 
     @Override

@@ -47,10 +47,28 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
         // Required empty public constructor
     }
 
+    public static EmployeesFragment setArguments(String dept) {
+
+        EmployeesFragment fragment = new EmployeesFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("dept", dept);
+
+        fragment.setArguments(bundle);
+
+
+        return fragment;
+
+
+    }
+
+    String dept;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dept = getArguments().getString("dept");
 
         setHasOptionsMenu(true);
     }
@@ -80,7 +98,7 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
         binding.tvEmptyView.setVisibility(View.GONE);
 
 
-        db.collection("Employees")
+        db.collection("Employees").whereEqualTo("department", dept)
                 .addSnapshotListener((snapshots, e) -> {
                     if (e != null) {
                         //Log.w(TAG, "listen:error", e);
@@ -91,7 +109,7 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
                         if (dc.getType() == DocumentChange.Type.ADDED) {
 
                             FastEmployee employee = dc.getDocument().toObject(FastEmployee.class);
-                            employee.sRef = storageReference.child(employee.uid+".jpg");
+                            employee.sRef = storageReference.child(employee.uid + ".jpg");
 
                             itemAdapter.add(employee);
 
@@ -104,7 +122,8 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
 
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastEmployee>) (v, adapter, item, position) -> {
-            ViewEmployeeActivity.start(getActivity(),item,v.findViewById(R.id.ivProfile));
+
+            ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
 
 
             return true;

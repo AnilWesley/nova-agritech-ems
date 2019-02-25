@@ -18,21 +18,32 @@ public class EmployeesActivity extends AppCompatActivity implements EmployeesFra
     }
 
 
+    public static void start(Context context, String dept) {
+
+        Intent intent = new Intent(context, EmployeesActivity.class);
+        intent.putExtra("dept", dept);
+        context.startActivity(intent);
+
+    }
+
     ActivityEmployeesBinding binding;
+
+    String dept;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_employees);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_employees);
 
         setSupportActionBar(binding.toolbar);
 
+        dept = getIntent().getStringExtra("dept");
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, new EmployeesFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, EmployeesFragment.setArguments(dept)).commit();
 
 
-        setTitle("Employees");
+        setTitle("Employees (" + dept + ")");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

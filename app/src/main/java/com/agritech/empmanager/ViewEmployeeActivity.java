@@ -20,6 +20,7 @@ import android.view.View;
 import com.agritech.empmanager.databinding.ActivityViewEmployeeBinding;
 import com.agritech.empmanager.fastpojo.FastEmployee;
 import com.agritech.empmanager.fragments.ViewEmployeeFragment;
+import com.agritech.empmanager.pojo.Emp;
 import com.agritech.empmanager.textdrawable.ColorGenerator;
 import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.GlideApp;
@@ -40,11 +41,11 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
 
     StorageReference storageRef;
 
-    String name = "Profile", designation, emailId, department;
+    String name = "Profile";
 
     String UID;
     TextDrawable drawable;
-
+    Emp emp;
 
     public static void start(Context context, FastEmployee fastEmployee, View view) {
 
@@ -58,6 +59,7 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
         context.startActivity(intent);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +70,11 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        storageRef = FirebaseStorage.getInstance().getReference().child("profilePic/").child(UID + ".jpg");
-
         UID = getIntent().getStringExtra("emp_uid");
         name = getIntent().getStringExtra("emp_name");
         binding.tvName.setText(name);
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("profilePic/").child(UID + ".jpg");
 
         drawable = TextDrawable.builder()
                 .beginConfig()
@@ -108,7 +110,7 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
 
         db = FirebaseFirestore.getInstance();
 
-        db.collection("Employees").document(UID).get().addOnCompleteListener(this,task -> {
+        db.collection("Employees").document(UID).get().addOnCompleteListener(this, task -> {
 
             binding.pbLoading.setVisibility(View.GONE);
 
@@ -117,19 +119,14 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
                 if (document.exists()) {
 
 
-                    designation = document.getString("designation");
+                    emp = document.toObject(Emp.class);
 
-                    department = document.getString("department");
-
-
-                    emailId = document.getString("email");
-
-                    binding.tvDesignation.setText(designation);
+                    binding.tvDesignation.setText(emp.designation);
 
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.viewEmployeeContainer, ViewEmployeeFragment.setArguments(UID))
+                            .replace(R.id.viewEmployeeContainer, ViewEmployeeFragment.setArguments(emp))
                             .commit();
 
 
@@ -222,7 +219,9 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
     }
 
     @Override
-    public void onViewEmployeeFragmentInteractionEditInfo() {
+    public void onViewEmployeeFragmentInteractionEditInfo(String type) {
+
+        EditEmployee.start(this, type,emp);
 
     }
 

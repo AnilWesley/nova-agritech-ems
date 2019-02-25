@@ -61,8 +61,8 @@ public class CalendarFragment extends Fragment {
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
 
-                setToolbarTitle("hii");
-                //activity.setTitle("" + (new SimpleDateFormat("MMMM yyyy")).format(firstDayOfNewMonth));
+                //setToolbarTitle("hii");
+                setToolbarTitle("" + (new SimpleDateFormat("MMMM yyyy")).format(firstDayOfNewMonth));
                 //Toast.makeText(activity, "" + firstDayOfNewMonth, Toast.LENGTH_SHORT).show();
 
             }
@@ -72,7 +72,7 @@ public class CalendarFragment extends Fragment {
     }
 
 
-    public void setToolbarTitle(String title){
+    public void setToolbarTitle(String title) {
 
         mListener.onCalendarFragmentInteraction(title);
 

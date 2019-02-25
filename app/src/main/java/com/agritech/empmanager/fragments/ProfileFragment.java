@@ -1,6 +1,7 @@
 package com.agritech.empmanager.fragments;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.agritech.empmanager.databinding.FragmentCalendarBinding;
 import com.agritech.empmanager.databinding.FragmentProfileBinding;
 import com.agritech.empmanager.mcalendar.CompactCalendarView;
 import com.agritech.empmanager.mcalendar.domain.Event;
+import com.agritech.empmanager.textdrawable.ColorGenerator;
+import com.agritech.empmanager.textdrawable.TextDrawable;
+import com.agritech.empmanager.utils.GlideApp;
 import com.agritech.empmanager.utils.PrefUtilities;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +26,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Date;
 import java.util.List;
@@ -42,6 +48,8 @@ public class ProfileFragment extends Fragment {
 
     String name = "Profile", designation, emailId;
 
+    StorageReference storageRef;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -58,6 +66,18 @@ public class ProfileFragment extends Fragment {
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(binding.toolbar);
         db = FirebaseFirestore.getInstance();
+
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("profilePic/").child(PrefUtilities.with(getActivity()).getUserId() + ".jpg");
+
+        Drawable drawable = TextDrawable.builder()
+                .beginConfig()
+                .height(200)
+                .width(200)
+                .endConfig()
+                .buildRect(name.charAt(0) + "", ColorGenerator.MATERIAL.getColor(name));
+
+        GlideApp.with(binding.ivProfile).load(storageRef).placeholder(drawable).into(binding.ivProfile);
 
 
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {

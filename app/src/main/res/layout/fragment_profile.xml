@@ -39,14 +39,15 @@
                         android:orientation="vertical">
 
 
-                        <ImageView
+                        <com.agritech.empmanager.imgtransitionlib.TransitionImageView
+                            android:id="@+id/ivProfile"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="12dp"
-                            android:adjustViewBounds="true"
                             android:padding="24dp"
-                            android:src="@drawable/profile" />
+                            android:src="@drawable/profile"
+                            app:tiv_rounding="1" />
 
 
                         <TextView
@@ -129,7 +130,6 @@
                             android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/aivBirthday"
                                 android:layout_width="48dp"
                                 android:layout_height="48dp"
                                 android:padding="@dimen/common_margin_padding"
@@ -716,7 +716,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tvSourceOfHire"
+                                    android:id="@+id/tvReportingTo"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="start"
@@ -725,7 +725,7 @@
                                     android:text=""
                                     android:textAlignment="viewStart"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                    tools:text="Naukri.com" />
+                                    tools:text="Vijaya Kumar L" />
 
 
                                 <TextView
@@ -734,7 +734,7 @@
                                     android:gravity="start"
                                     android:paddingStart="@dimen/common_margin_padding"
                                     android:paddingLeft="@dimen/common_margin_padding"
-                                    android:text="Source of Hire"
+                                    android:text="Reporting to"
                                     android:textAlignment="viewStart"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -793,7 +793,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tvWorkLocation"
+                                    android:id="@+id/tvSourceOfHire"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="start"
@@ -802,7 +802,7 @@
                                     android:text=""
                                     android:textAlignment="viewStart"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                    tools:text="Hyderabad" />
+                                    tools:text="Naukri.com" />
 
 
                                 <TextView
@@ -811,7 +811,408 @@
                                     android:gravity="start"
                                     android:paddingStart="@dimen/common_margin_padding"
                                     android:paddingLeft="@dimen/common_margin_padding"
-                                    android:text="Work Location"
+                                    android:text="Source of Hire"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Work Location"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#6aaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding"
+                        android:src="@drawable/ic_outline_location_on_24px" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvState"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text=""
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    tools:text="Andhra Pradesh" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="State"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvDistic"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text=""
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    tools:text="Krishna" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Distic"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvMandal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text=""
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    tools:text="Musunuru" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Mandal"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvVillage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text=""
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    tools:text="Velpucharla" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Village"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvHeadQuaters"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text=""
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    tools:text="Nuzvid" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Head Quaters"
                                     android:textAlignment="viewStart"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -1868,6 +2269,90 @@
                     android:layout_height="1dp"
                     android:background="#6aaa" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="@dimen/common_margin_padding"
+                        android:src="@drawable/ic_outline_people_24px" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvTeams"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Teams"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    tools:text="12" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:paddingStart="@dimen/common_margin_padding"
+                                    android:paddingLeft="@dimen/common_margin_padding"
+                                    android:text="Sick Leaves"
+                                    android:textAlignment="viewStart"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:visibility="gone" />
+
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginRight="12dp"
+                                android:src="@drawable/ic_outline_keyboard_arrow_right_24px" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginStart="@dimen/common_margin_padding"
+                            android:layout_marginLeft="@dimen/common_margin_padding"
+                            android:layout_marginBottom="8dp"
+                            android:background="#2aaa"
+                            android:gravity="start"
+                            android:textAlignment="viewStart" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

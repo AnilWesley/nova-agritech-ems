@@ -12,8 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.agritech.empmanager.EditEmployee;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentViewEmployeeBinding;
+import com.agritech.empmanager.pojo.Emp;
 import com.agritech.empmanager.textdrawable.ColorGenerator;
 import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.GlideApp;
@@ -43,6 +45,7 @@ public class ViewEmployeeFragment extends Fragment {
     AppCompatActivity activity;
     FirebaseFirestore db;
 
+    Emp emp;
 
 
     public ViewEmployeeFragment() {
@@ -53,14 +56,17 @@ public class ViewEmployeeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
+        emp = getArguments().getParcelable("emp");
+
         super.onCreate(savedInstanceState);
     }
 
-    public static ViewEmployeeFragment setArguments(String emp_uid) {
+    public static ViewEmployeeFragment setArguments(Emp emp) {
 
         ViewEmployeeFragment fragment = new ViewEmployeeFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("emp_uid", emp_uid);
+        bundle.putParcelable("emp", emp);
         fragment.setArguments(bundle);
 
         fragment.setEnterTransition(new Slide(Gravity.BOTTOM));
@@ -71,25 +77,38 @@ public class ViewEmployeeFragment extends Fragment {
     }
 
 
+
+
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_view_employee, container, false);
 
-        String UID = getArguments().getString("emp_uid");
+        binding.setEmp(emp);
 
+        setEditable();
 
         return binding.getRoot();
     }
 
     private void setEditable() {
 
-        binding.aivEditBasicInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.aivEditBasicInfo.setOnClickListener(v -> {
 
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_BASIC_INFO);
             }
+
+        });
+
+        binding.aivEditBasicInfo.setOnClickListener(v -> {
+
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_BASIC_INFO);
+            }
+
         });
 
     }
@@ -114,13 +133,10 @@ public class ViewEmployeeFragment extends Fragment {
     }
 
 
-
-
-
-
     public interface OnViewEmployeeFragmentInteractionListener {
         // TODO: Update argument type and name
         void onViewEmployeeFragmentInteraction(String title);
-        void onViewEmployeeFragmentInteractionEditInfo();
+
+        void onViewEmployeeFragmentInteractionEditInfo(String type);
     }
 }
