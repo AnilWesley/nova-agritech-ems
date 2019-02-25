@@ -15,6 +15,7 @@ import com.agritech.empmanager.databinding.ActivityHomeBinding;
 import com.agritech.empmanager.fragments.CalendarFragment;
 import com.agritech.empmanager.fragments.DashboardFragment;
 import com.agritech.empmanager.fragments.ProfileFragment;
+import com.agritech.empmanager.fragments.TeamsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -102,6 +103,14 @@ public class Home extends AppCompatActivity implements
     public void onDashboardFragmentInteractionAddEmployee() {
 
         AddEmployeeActivity.start(this);
+
+    }
+
+    @Override
+    public void onDashboardFragmentInteractionTeams() {
+
+        TeamsActivity.start(this);
+
 
     }
 

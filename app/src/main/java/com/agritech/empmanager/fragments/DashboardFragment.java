@@ -101,6 +101,12 @@ public class DashboardFragment extends Fragment {
                 mListener.onDashboardFragmentInteractionDepartments();
 
 
+        } else if (menuId == R.id.menuTeams){
+
+            if (mListener != null)
+                mListener.onDashboardFragmentInteractionTeams();
+
+
         } else if (menuId == R.id.menuLogout){
 
             if (mListener != null)
@@ -118,6 +124,9 @@ public class DashboardFragment extends Fragment {
         void onDashboardFragmentInteractionViewEmployees();
         void onDashboardFragmentInteractionDepartments();
         void onDashboardFragmentInteractionAddEmployee();
+
+        void onDashboardFragmentInteractionTeams();
+
         void onDashboardFragmentInteractionLogout();
     }
 }
