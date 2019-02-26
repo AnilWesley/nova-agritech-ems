@@ -26,6 +26,10 @@
 
         <item name="android:fontFamily">@font/opensans_regular</item>
 
+
+        <item name="android:buttonBarNegativeButtonStyle">@style/dialogButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/dialogButtonStyle</item>
+
     </style>
 
 </resources>
