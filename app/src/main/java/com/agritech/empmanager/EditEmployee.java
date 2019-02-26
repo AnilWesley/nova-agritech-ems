@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.agritech.empmanager.databinding.ActivityEditEmployeeBinding;
 import com.agritech.empmanager.fragments.EmpEditBasicInfoFragment;
+import com.agritech.empmanager.fragments.EmpEditDepInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditLeaveInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditPersonalInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditWorkInfoFragment;
@@ -24,6 +25,7 @@ import java.util.Map;
 public class EditEmployee extends AppCompatActivity implements
         EmpEditBasicInfoFragment.OnEmpEditBasicInfoFragmentInteractionListener,
         EmpEditWorkInfoFragment.OnEmpEditWorkInfoFragmentInteractionListener,
+        EmpEditDepInfoFragment.OnEmpEditDepInfoFragmentInteractionListener,
         EmpEditLeaveInfoFragment.OnEmpEditLeaveInfoFragmentInteractionListener,
         EmpEditPersonalInfoFragment.OnEmpEditPersonalInfoFragmentInteractionListener,
         SelectReportingToFragment.OnSelectReportingToFragmentInteractionListener {
@@ -32,6 +34,7 @@ public class EditEmployee extends AppCompatActivity implements
     public static final String EDIT_WORK_INFO = "emp_edit_work_info";
     public static final String EDIT_LEAVE_INFO = "emp_edit_leave_info";
     public static final String EDIT_PERSONAL_INFO = "emp_edit_personal_info";
+    public static final String EDIT_DEP_INFO = "emp_edit_dep_info";
 
     SelectReportingToFragment selectReportingToFragment;
 
@@ -94,6 +97,12 @@ public class EditEmployee extends AppCompatActivity implements
             setTitle("Edit personal info");
 
             getSupportFragmentManager().beginTransaction().replace(R.id.editEmployeeContainer, EmpEditPersonalInfoFragment.setArguments(emp)).commit();
+
+        } else if (type.equals(EDIT_DEP_INFO)) {
+
+            setTitle("Edit dep info");
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.editEmployeeContainer, EmpEditDepInfoFragment.setArguments(emp)).commit();
 
         }
 
@@ -236,6 +245,34 @@ public class EditEmployee extends AppCompatActivity implements
 
                 });
 
+
+    }
+
+    @Override
+    public void onEmpEditDepInfoFragmentInteraction(String name, String relationship, String dob, String occupation, View v) {
+
+
+        v.setEnabled(false);
+
+        Map<String, Object> user = new HashMap<>();
+        user.put("depName", name);
+        user.put("depDOB", dob);
+        user.put("depRelationship", relationship);
+        user.put("depOccupation", occupation);
+
+        db.collection("Employees").document(emp.uid).update(user)
+                .addOnSuccessListener(documentReference -> {
+
+                    finish();
+
+                })
+                .addOnFailureListener(e -> {
+
+                    v.setEnabled(true);
+                    Snackbar.make(binding.getRoot(), "Error, " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+
+
+                });
 
     }
 }

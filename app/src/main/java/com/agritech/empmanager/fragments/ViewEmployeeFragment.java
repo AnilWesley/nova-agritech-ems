@@ -128,6 +128,15 @@ public class ViewEmployeeFragment extends Fragment {
         });
 
 
+        binding.aivEditDependentInfo.setOnClickListener(v -> {
+
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_DEP_INFO);
+            }
+
+        });
+
+
     }
 
 
