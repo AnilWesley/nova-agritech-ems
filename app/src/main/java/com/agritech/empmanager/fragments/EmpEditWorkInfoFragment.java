@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentEmpEditWorkInfoBinding;
+import com.agritech.empmanager.pojo.Emp;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
@@ -21,10 +24,37 @@ public class EmpEditWorkInfoFragment extends Fragment {
 
     FragmentEmpEditWorkInfoBinding binding;
 
+    Emp emp;
+
 
     public EmpEditWorkInfoFragment() {
         // Required empty public constructor
     }
+
+
+    public static EmpEditWorkInfoFragment setArguments(Emp emp) {
+
+        EmpEditWorkInfoFragment fragment = new EmpEditWorkInfoFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("emp",emp);
+
+        fragment.setArguments(bundle);
+
+        return fragment;
+
+    }
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+
+        emp = getArguments().getParcelable("emp");
+
+        super.onCreate(savedInstanceState);
+
+    }
+
 
 
     @Override
@@ -32,43 +62,54 @@ public class EmpEditWorkInfoFragment extends Fragment {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_emp_edit_work_info, container, false);
 
+        binding.etReportingTo.setOnClickListener(v -> mListener.onEmpEditWorkInfoFragmentInteractionShowReportingTo());
+
+        binding.setEmp(emp);
+
+
+        ArrayAdapter arrayAdapter= new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.eventtypes));
+        binding.etDepartment.setAdapter(arrayAdapter);
+        binding.etDepartment.setInputType(0);
+
+        binding.etDepartment.setOnClickListener(v -> binding.etDepartment.showDropDown());
+
 
         binding.acbSave.setOnClickListener(v -> {
 
             //General information
 
-            String firstName = binding.etFirstName.getText().toString();
-            String lastName = binding.etLastName.getText().toString();
+            String reportingToName = binding.etReportingTo.getText().toString();
+            String department = binding.etDepartment.getText().toString();
 
-            String esiNumber = binding.etESINumber.getText().toString();
+            String designation = binding.etDesignation.getText().toString();
 
-            String pfNumber = binding.etPFNumber.getText().toString();
+            String sourceOfHair = binding.etSourceofHair.getText().toString();
 
 
-            if (firstName.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "First Name is empty", Snackbar.LENGTH_LONG).show();
+            if (department.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Department To is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if (lastName.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Last Name is empty", Snackbar.LENGTH_LONG).show();
+            if (designation.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Designation is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
 
-            if (esiNumber.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "ESI Number is empty", Snackbar.LENGTH_LONG).show();
+            if (sourceOfHair.isEmpty()) {
+                Snackbar.make(binding.getRoot(), "Source Of Hair is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if (pfNumber.isEmpty()) {
+          /*  if (pfNumber.isEmpty()) {
                 Snackbar.make(binding.getRoot(), "PF Number is empty", Snackbar.LENGTH_LONG).show();
                 return;
             }
-
+*/
 
             if (mListener != null) {
-                mListener.onEmpEditWorkInfoFragmentInteraction(firstName, lastName, esiNumber, pfNumber,v);
+                mListener.onEmpEditWorkInfoFragmentInteraction(reportingToName, emp.reportingToUID, department, designation,sourceOfHair,v);
             }
 
 
@@ -96,7 +137,20 @@ public class EmpEditWorkInfoFragment extends Fragment {
         mListener = null;
     }
 
+    public void updateReportingTo(String uid, String name) {
+
+        binding.etReportingTo.setText(name);
+
+        emp.reportingToName = name;
+        emp.reportingToUID = uid;
+
+
+    }
+
     public interface OnEmpEditWorkInfoFragmentInteractionListener {
-        void onEmpEditWorkInfoFragmentInteraction(String fName, String lName, String esiNumber, String pfNumber, View v);
+        void onEmpEditWorkInfoFragmentInteraction(String reportingToName, String reportingToUID, String department, String designation, String sourceOfHire, View v);
+
+        void onEmpEditWorkInfoFragmentInteractionShowReportingTo();
+
     }
 }

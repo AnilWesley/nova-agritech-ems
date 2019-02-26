@@ -30,77 +30,93 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Reporting to"
+                android:hint="Casual Leaves"
                 android:textSize="16sp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etReportingTo"
+                    android:id="@+id/etCasualLeaves"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:text="@{emp.reportingToName}"
-                    android:focusableInTouchMode="false"
-                    android:inputType="textPersonName"
-                    android:lines="1" />
+                    android:inputType="number"
+                    android:lines="1"
+                    android:text="@{emp.sickLeaves}" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Designation"
+                android:hint="Sick Leaves"
                 android:textSize="16sp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etDesignation"
+                    android:id="@+id/etSickLeaves"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:text="@{emp.designation}"
-                    android:lines="1" />
+                    android:inputType="number"
+                    android:lines="1"
+                    android:text="@{emp.sickLeaves}" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Department"
-                android:inputType="textPersonName"
+                android:hint="Annual Leaves"
                 android:textSize="16sp">
 
-                <AutoCompleteTextView
-                    android:id="@+id/etDepartment"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAnnualLeaves"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:text="@{emp.department}"
-                    android:focusableInTouchMode="false"
-                    android:inputType="textPersonName"
-                    android:lines="1" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:text="@{emp.annualLeaves}" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Source of Hair"
+                android:hint="Maternal Leaves"
                 android:textSize="16sp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etSourceofHair"
+                    android:id="@+id/etMaternalLeaves"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:text="@{emp.sourceOfHire}"
-                    android:lines="1" />
+                    android:inputType="number"
+                    android:lines="1"
+                    android:text="@{emp.maternalLeaves}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Paternal Leaves"
+                android:textSize="16sp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPaternalLeaves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:text="@{emp.paternalLeaves}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

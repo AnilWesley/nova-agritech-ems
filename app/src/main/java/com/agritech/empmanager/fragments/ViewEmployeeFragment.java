@@ -103,13 +103,30 @@ public class ViewEmployeeFragment extends Fragment {
 
         });
 
-        binding.aivEditBasicInfo.setOnClickListener(v -> {
+        binding.aivEditWorkInfo.setOnClickListener(v -> {
 
             if (mListener != null) {
-                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_BASIC_INFO);
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_WORK_INFO);
             }
 
         });
+
+        binding.aivEditLeaveInfo.setOnClickListener(v -> {
+
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_LEAVE_INFO);
+            }
+
+        });
+
+        binding.aivEditPersonalInfo.setOnClickListener(v -> {
+
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.EDIT_PERSONAL_INFO);
+            }
+
+        });
+
 
     }
 
