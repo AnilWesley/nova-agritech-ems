@@ -12,6 +12,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/*Used for holidays Teams ,Depts*/
+
 
 public class FastDept extends AbstractItem<FastDept, FastDept.ViewHolder> {
 

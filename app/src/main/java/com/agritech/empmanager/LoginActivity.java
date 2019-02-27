@@ -122,12 +122,13 @@ public class LoginActivity extends AppCompatActivity {
                     Constants.type = type;
                     //PrefUtilities.with(LoginActivity.this).saveClientName(client);
                     PrefUtilities.with(LoginActivity.this).saveUserId(user.getUid());
+                    PrefUtilities.with(LoginActivity.this).saveName(user.getDisplayName());
 
                     String fcmId = PrefUtilities.with(LoginActivity.this).getFCMId();
 
                     FirebaseFirestore.getInstance().collection("employees").document(user.getUid()).update("fcm_id", fcmId);
 
-                    Home.start(LoginActivity.this);
+                    HomeNewActivity.start(LoginActivity.this);
                     finish();
 
                 } else {

@@ -60,6 +60,17 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
     }
 
 
+    public static void start(Context context, String name,String uid) {
+
+        //fastEmployee.uid
+        Intent intent = new Intent(context, ViewEmployeeActivity.class);
+        intent.putExtra("emp_uid", uid);
+        intent.putExtra("emp_name", name);
+
+        context.startActivity(intent);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

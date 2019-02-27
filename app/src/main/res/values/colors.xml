@@ -14,5 +14,6 @@
 
     <color name="colorTejaTitle">#2f3538</color>
     <color name="colorTejaSubItem">#5b6c73</color>
+    <color name="line_color_dark">#6aaa</color>
 
 </resources>

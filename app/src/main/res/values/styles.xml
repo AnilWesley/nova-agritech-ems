@@ -12,6 +12,19 @@
     </style>
 
 
+    <style name="AppThemeHome" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+
+    </style>
+
+
     <!-- &lt;!&ndash;App theme pro&ndash;&gt;
      <style name="AppThemePro" parent="Theme.AppCompat.Light.DarkActionBar">
 

@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EmpMoreInfoActivity"></activity>
+        <activity android:name=".HolidaysActivity"></activity>
+        <activity
+            android:name=".HomeNewActivity"
+            android:theme="@style/AppThemeHome" />
+        <activity android:name=".EmpMoreInfoActivity" />
         <activity android:name=".TeamsActivity" />
         <activity android:name=".DepartmentsActivity" />
         <activity android:name=".EditEmployee" />

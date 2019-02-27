@@ -111,13 +111,8 @@
                 android:layout_height="wrap_content" />
 
 
-          <!--  <ProgressBar
-                android:id="@+id/pbLoading"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:indeterminateTint="@color/colorWhite"
-                android:layout_gravity="bottom"
-                android:layout_height="wrap_content" />-->
+
+
 
 
         </FrameLayout>

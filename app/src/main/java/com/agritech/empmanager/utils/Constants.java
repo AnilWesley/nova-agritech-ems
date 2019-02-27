@@ -5,6 +5,7 @@ public class Constants {
     public static final int FAST_EMPLOYEE_ID = 10001;
 
     public static final int FAST_DEPT_ID = 10002;
+    public static final int FAST_HOLIDAY_ID = 10003;
 
 
 /*

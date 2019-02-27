@@ -59,4 +59,14 @@ public class PrefUtilities {
     }
 
 
+    public String getName() {
+        return preferences.getString(context.getString(R.string.pref_key_name), "");
+    }
+
+
+    public void saveName(String displayName) {
+
+        preferences.edit().putString(context.getString(R.string.pref_key_name), displayName).apply();
+
+    }
 }
