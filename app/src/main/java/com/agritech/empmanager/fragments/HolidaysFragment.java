@@ -21,10 +21,11 @@ import android.widget.TextView;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentDepartmentsBinding;
 import com.agritech.empmanager.fastpojo.FastHoliday;
+import com.agritech.empmanager.utils.Constants;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.mikepenz.fastadapter.FastAdapter;
-import com.mikepenz.fastadapter.IAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter.listeners.OnLongClickListener;
 
@@ -63,11 +64,28 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
         // Required empty public constructor
     }
 
+    public static HolidaysFragment setArguments(boolean forHR) {
+
+        HolidaysFragment fragment = new HolidaysFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("forHR", forHR);
+
+        fragment.setArguments(bundle);
+
+        return fragment;
+
+    }
+
+    boolean forHR;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setHasOptionsMenu(true);
+        forHR = getArguments().getBoolean("forHR", false);
+
+        if (forHR)
+            setHasOptionsMenu(true);
 
     }
 
@@ -94,10 +112,43 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
         binding.rvDepartments.setEmptyView(binding.tvEmptyView);
 
 
+
         binding.tvEmptyView.setVisibility(View.GONE);
 
 
         db.collection("holidays")
+                .whereEqualTo("year", 2019)
+                .orderBy("time")
+                .addSnapshotListener((snapshots, e) -> {
+                    if (e != null) {
+                        //Log.w(TAG, "listen:error", e);
+                        return;
+                    }
+
+                    for (DocumentChange dc : snapshots.getDocumentChanges()) {
+                        if (dc.getType() == DocumentChange.Type.ADDED) {
+
+                            FastHoliday holiday = dc.getDocument().toObject(FastHoliday.class);
+
+                            holiday.uuid = dc.getDocument().getId();
+
+                            itemAdapter.add(holiday);
+
+                        } else if (dc.getType() == DocumentChange.Type.MODIFIED) {
+
+                            FastHoliday holiday = dc.getDocument().toObject(FastHoliday.class);
+
+                            holiday.uuid = dc.getDocument().getId();
+
+                            itemAdapter.add(holiday);
+
+                        }
+                    }
+
+                });
+
+
+     /*   db.collection("holidays")
                 .whereEqualTo("year", 2019)
                 .orderBy("time")
                 .get()
@@ -119,16 +170,20 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
                         Log.v("error", task.getException().getMessage());
 
                     }
-                });
+                });*/
 
 
-        fastAdapter.withSelectable(true);
-        fastAdapter.withOnLongClickListener((OnLongClickListener<FastHoliday>) (v, adapter, item, position) -> {
+        if (forHR) {
+            fastAdapter.withSelectable(true);
+            fastAdapter.withOnLongClickListener((OnLongClickListener<FastHoliday>) (v, adapter, item, position) -> {
 
-            showDialog("Edit holiday", 2, item);
+                showDialog("Edit holiday", 2, item, position);
 
-            return true;
-        });
+
+                return true;
+            });
+
+        }
 
         return binding.getRoot();
     }
@@ -145,7 +200,7 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
 
         if (item.getItemId() == R.id.menuAdd) {
 
-            showDialog("Add Holiday", 1, null);
+            showDialog("Add Holiday", 1, null, 0);
         }
 
         return super.onOptionsItemSelected(item);
@@ -187,7 +242,7 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
     }
 
 
-    public void showDialog(String title, int type, FastHoliday holiday) {
+    public void showDialog(String title, int type, FastHoliday holiday, int position) {
 
         final Dialog dialog = new Dialog(getActivity());
 
@@ -207,7 +262,7 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
 
         AppCompatImageView aivDelete = dialog.findViewById(R.id.aivDelete);
 
-        if (type==1){
+        if (type == 1) {
             aivDelete.setVisibility(View.INVISIBLE);
         }
 
@@ -215,6 +270,8 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
 
             db.collection("holidays").document(holiday.uuid).delete();
             dialog.dismiss();
+
+            itemAdapter.remove(position);
 
         });
 
@@ -262,6 +319,9 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
                     db.collection("holidays").add(map);
                 } else
                     db.collection("holidays").document(holiday.uuid).update(map);
+
+
+                itemAdapter.remove(position);
 
                 dialog.dismiss();
 

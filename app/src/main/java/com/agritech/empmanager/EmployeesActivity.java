@@ -32,11 +32,12 @@ public class EmployeesActivity extends AppCompatActivity implements
 
     SelectReportingToFragment selectReportingToFragment;
 
-    public static void start(Context context, String name, String action) {
+    public static void start(Context context, String name, String action, boolean isHR) {
 
         Intent intent = new Intent(context, EmployeesActivity.class);
         intent.setAction(action);
         intent.putExtra("name", name);
+        intent.putExtra("forHR", isHR);
         context.startActivity(intent);
 
     }
@@ -44,6 +45,7 @@ public class EmployeesActivity extends AppCompatActivity implements
     ActivityEmployeesBinding binding;
 
     String name, action;
+    boolean forHR = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +57,19 @@ public class EmployeesActivity extends AppCompatActivity implements
 
         action = getIntent().getAction();
         name = getIntent().getStringExtra("name");
+        forHR = getIntent().getBooleanExtra("forHR",false);
 
         setTitle("Employees (" + name + ")");
 
 
         if (action.equals(INTENT_ACTION_DEPT)) {
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, EmployeesFragment.setArguments(name)).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, EmployeesFragment.setArguments(name,forHR)).commit();
 
         } else {
             selectReportingToFragment = new SelectReportingToFragment();
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, TeamNumbersFragment.setArguments(name)).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.employeeContainer, TeamNumbersFragment.setArguments(name,forHR)).commit();
 
         }
 

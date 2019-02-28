@@ -13,10 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.agritech.empmanager.MyProfileActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.ViewEmployeeActivity;
 import com.agritech.empmanager.databinding.FragmentEmployeesBinding;
 import com.agritech.empmanager.fastpojo.FastEmployee;
+import com.agritech.empmanager.utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -55,12 +57,13 @@ public class TeamNumbersFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static TeamNumbersFragment setArguments(String team) {
+    public static TeamNumbersFragment setArguments(String team,boolean forHR) {
 
         TeamNumbersFragment fragment = new TeamNumbersFragment();
 
         Bundle bundle = new Bundle();
         bundle.putString("team", team);
+        bundle.putBoolean("forHR", forHR);
 
         fragment.setArguments(bundle);
 
@@ -71,14 +74,17 @@ public class TeamNumbersFragment extends Fragment {
     }
 
     String team;
+    Boolean forHR = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         team = getArguments().getString("team");
+        forHR = getArguments().getBoolean("forHR");
 
-        setHasOptionsMenu(true);
+        if (forHR)
+            setHasOptionsMenu(true);
     }
 
     @Override
@@ -131,12 +137,21 @@ public class TeamNumbersFragment extends Fragment {
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastEmployee>) (v, adapter, item, position) -> {
 
-            ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
+            //ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
+
+            if (forHR)
+                ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
+            else
+                MyProfileActivity.start(getActivity(), item.uid,item.fName+" "+item.lName);
+
 
 
             return true;
         });
 
+
+        if (!Constants.type.equals("1"))
+            return binding.getRoot();
 
         fastAdapter.withOnLongClickListener((OnLongClickListener<FastEmployee>) (v, adapter, item, position) -> {
 

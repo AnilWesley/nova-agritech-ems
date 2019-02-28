@@ -61,7 +61,7 @@ public class Emp implements Parcelable {
     public String paternalLeaves;
 
 
-    ArrayList<String> teams;
+    public ArrayList<String> teams;
 
     public Emp() {
     }

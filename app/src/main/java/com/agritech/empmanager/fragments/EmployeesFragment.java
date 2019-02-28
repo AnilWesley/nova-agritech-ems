@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.agritech.empmanager.MyProfileActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.ViewEmployeeActivity;
 import com.agritech.empmanager.databinding.FragmentEmployeesBinding;
@@ -45,12 +46,13 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
         // Required empty public constructor
     }
 
-    public static EmployeesFragment setArguments(String dept) {
+    public static EmployeesFragment setArguments(String dept, boolean forHR) {
 
         EmployeesFragment fragment = new EmployeesFragment();
 
         Bundle bundle = new Bundle();
         bundle.putString("dept", dept);
+        bundle.putBoolean("forHR", forHR);
 
         fragment.setArguments(bundle);
 
@@ -62,13 +64,17 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
 
     String dept;
 
+    Boolean forHR;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         dept = getArguments().getString("dept");
+        forHR = getArguments().getBoolean("forHR");
 
-        setHasOptionsMenu(true);
+        if (forHR)
+            setHasOptionsMenu(true);
     }
 
     @Override
@@ -121,10 +127,13 @@ public class EmployeesFragment extends Fragment implements SearchView.OnQueryTex
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastEmployee>) (v, adapter, item, position) -> {
 
-            ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
-
+            if (forHR)
+                ViewEmployeeActivity.start(getActivity(), item, v.findViewById(R.id.ivProfile));
+            else
+                MyProfileActivity.start(getActivity(), item.uid,item.fName+" "+item.lName);
 
             return true;
+
         });
 
 

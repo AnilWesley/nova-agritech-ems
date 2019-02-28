@@ -117,7 +117,7 @@ public class TeamsFragment extends Fragment {
 
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastDept>) (v, adapter, item, position) -> {
-            EmployeesActivity.start(getActivity(), item.name,EmployeesActivity.INTENT_ACTION_TEAM);
+            EmployeesActivity.start(getActivity(), item.name,EmployeesActivity.INTENT_ACTION_TEAM,true);
             return true;
         });
 

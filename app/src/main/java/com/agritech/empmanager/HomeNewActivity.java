@@ -8,16 +8,21 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.agritech.empmanager.databinding.ActivityHomeNewBinding;
 import com.agritech.empmanager.fragments.HomeNewFragment;
 import com.agritech.empmanager.pojo.Emp;
+import com.agritech.empmanager.pojo.NewEmpBasic;
 import com.agritech.empmanager.textdrawable.ColorGenerator;
 import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.GlideApp;
 import com.agritech.empmanager.utils.PrefUtilities;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -135,14 +140,72 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
 
     public void startProfileActivity(View view) {
 
-        ViewEmployeeActivity.start(this,name,UID);
+        MyProfileActivity.start(this, emp.uid,emp.fName+" "+emp.lName);
 
     }
 
     public void startHolidaysActivity(View view) {
 
-        HolidaysActivity.start(this);
+        HolidaysActivity.start(this, false);
 
     }
 
+    public void startHRHolidaysActivity(View view) {
+
+        HolidaysActivity.start(this, true);
+
+    }
+
+    public void startHRNewEmpActivity(View view) {
+
+        AddEmployeeActivity.start(this);
+
+    }
+
+    public void startHRDeptActivity(View view) {
+
+        DepartmentsActivity.start(this);
+
+    }
+
+    public void startHRTeamsActivity(View view) {
+
+        TeamsActivity.start(this);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.dashboard_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.menuLogout) {
+            FirebaseAuth.getInstance().signOut();
+            LoginActivity.start(this, 0);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void startMyTeamsActivity(View view) {
+
+
+        if (emp.teams == null) {
+            Snackbar.make(binding.getRoot(), "No teams available", Snackbar.LENGTH_LONG).show();
+        } else if (emp.teams.size() > 1) {
+            MyTeamsActivity.start(this);
+        } else if (emp.teams.size() == 1) {
+            EmployeesActivity.start(this, emp.teams.get(0), EmployeesActivity.INTENT_ACTION_TEAM,false);
+        } else {
+            Snackbar.make(binding.getRoot(), "No teams available", Snackbar.LENGTH_LONG).show();
+        }
+    }
 }

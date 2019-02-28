@@ -17,22 +17,28 @@ public class HolidaysActivity extends AppCompatActivity implements HolidaysFragm
 
     ActivityHolidaysBinding binding;
 
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, HolidaysActivity.class));
+    public static void start(Context context,boolean forHR) {
+
+        Intent intent = new Intent(context,HolidaysActivity.class);
+        intent.putExtra("forHR",forHR);
+        context.startActivity(intent);
     }
 
+
+    boolean forHR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_holidays);
 
+        forHR = getIntent().getBooleanExtra("forHR",false);
 
         setSupportActionBar(binding.toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.holidaysContainer, new HolidaysFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.holidaysContainer, HolidaysFragment.setArguments(forHR)).commit();
 
         setTitle("Holidays");
 

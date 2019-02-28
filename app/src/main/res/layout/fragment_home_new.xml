@@ -80,6 +80,7 @@
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
+                        android:onClick="startMyTeamsActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
@@ -419,6 +420,7 @@
 
 
             <TextView
+                android:id="@+id/tvHrMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -427,6 +429,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
             <LinearLayout
+                android:id="@+id/llHrMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
@@ -457,6 +460,7 @@
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
+                        android:onClick="startHRNewEmpActivity"
                         android:padding="12dp">
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -492,6 +496,7 @@
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startHRDeptActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -529,6 +534,7 @@
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
+                        android:onClick="startHRTeamsActivity"
                         android:padding="12dp">
 
 
@@ -583,6 +589,7 @@
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
+                        android:onClick="startHRHolidaysActivity"
                         android:padding="12dp">
 
                         <androidx.appcompat.widget.AppCompatImageView

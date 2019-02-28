@@ -20,9 +20,13 @@ public class FastDept extends AbstractItem<FastDept, FastDept.ViewHolder> {
     public String name;
     public int count;
 
-    public FastDept() {
+    public FastDept(String s) {
+        this.name = s;
+        this.count = 0;
     }
 
+    public FastDept() {
+    }
 
     //The unique ID for this type of item
     @Override

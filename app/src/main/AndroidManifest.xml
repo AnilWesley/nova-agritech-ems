@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HolidaysActivity"></activity>
+        <activity android:name=".MyTeamsActivity"></activity>
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".HolidaysActivity" />
         <activity
             android:name=".HomeNewActivity"
             android:theme="@style/AppThemeHome" />

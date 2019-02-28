@@ -92,7 +92,7 @@ public class DepartmentsFragment extends Fragment {
 
         fastAdapter.withSelectable(true);
         fastAdapter.withOnClickListener((OnClickListener<FastDept>) (v, adapter, item, position) -> {
-            EmployeesActivity.start(getActivity(), item.name,EmployeesActivity.INTENT_ACTION_DEPT);
+            EmployeesActivity.start(getActivity(), item.name,EmployeesActivity.INTENT_ACTION_DEPT,true);
             return true;
         });
 

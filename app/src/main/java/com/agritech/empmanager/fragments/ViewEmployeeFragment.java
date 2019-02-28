@@ -42,7 +42,6 @@ public class ViewEmployeeFragment extends Fragment {
     private OnViewEmployeeFragmentInteractionListener mListener;
 
     FragmentViewEmployeeBinding binding;
-    AppCompatActivity activity;
     FirebaseFirestore db;
 
     Emp emp;

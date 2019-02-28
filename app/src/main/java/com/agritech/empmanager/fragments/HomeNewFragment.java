@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentHomeNewBinding;
 import com.agritech.empmanager.pojo.Emp;
+import com.agritech.empmanager.utils.Constants;
 import com.agritech.empmanager.utils.GlideApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -76,6 +77,13 @@ public class HomeNewFragment extends Fragment {
         GlideApp.with(binding.ivAttendence).load(eRef.child("attendence.png")).into(binding.ivAttendence);
         GlideApp.with(binding.ivSales).load(eRef.child("sales.png")).into(binding.ivSales);
 
+
+        if (!Constants.type.equals("1")){
+
+            binding.tvHrMenu.setVisibility(View.GONE);
+            binding.llHrMenu.setVisibility(View.GONE);
+
+        }
 
 
 
