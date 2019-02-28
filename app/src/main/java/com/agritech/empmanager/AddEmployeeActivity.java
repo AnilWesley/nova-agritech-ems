@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import com.agritech.empmanager.databinding.ActivityAddEmployeeBinding;
 import com.agritech.empmanager.fragments.AddEmployeeFragment;
@@ -67,4 +68,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements AddEmploye
         finish();
 
     }
+
+
 }

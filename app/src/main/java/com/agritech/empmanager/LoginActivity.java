@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     String fcmId = PrefUtilities.with(LoginActivity.this).getFCMId();
 
-                    FirebaseFirestore.getInstance().collection("employees").document(user.getUid()).update("fcm_id", fcmId);
+                    FirebaseFirestore.getInstance().collection("Employees").document(user.getUid()).update("fcmId", fcmId);
 
                     HomeNewActivity.start(LoginActivity.this);
                     finish();

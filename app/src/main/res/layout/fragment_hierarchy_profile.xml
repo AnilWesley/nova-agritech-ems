@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,9 +42,9 @@
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
-                        android:onClick="startProfileActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startProfileActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -80,9 +79,9 @@
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
-                        android:onClick="startMyTeamsActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startMyTeamsActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -246,9 +245,9 @@
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
-                        android:onClick="startHolidaysActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startHolidaysActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -302,9 +301,9 @@
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
-                        android:onClick="startHierarchyActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startHierarchyActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -419,293 +418,8 @@
 
             </LinearLayout>
 
-
-            <TextView
-                android:id="@+id/tvHrMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="24dp"
-                android:text="HR Menu"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
-            <LinearLayout
-                android:id="@+id/llHrMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/line_color_dark" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llNewEmp"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:onClick="startHRNewEmpActivity"
-                        android:padding="12dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/menuAddNewEmp"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:singleLine="true"
-                            android:text="Add EMP"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llDept"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:onClick="startHRDeptActivity"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/menuDept"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:text="DEPT"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llTeams"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:onClick="startHRTeamsActivity"
-                        android:padding="12dp">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/menuTeam"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:text="TEAMS"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/line_color_dark" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llHolidays"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:onClick="startHRHolidaysActivity"
-                        android:padding="12dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivHolidays"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:singleLine="true"
-                            android:text="HOLIDAYS"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llLeaves"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivLeaves"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:singleLine="true"
-                            android:text="LEAVES"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                    <LinearLayout
-                        android:id="@+id/llAssets"
-                        android:layout_width="0dp"
-                        android:layout_height="90dp"
-                        android:layout_margin="12dp"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivAssets"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:padding="6dp"
-                            app:tint="@color/colorPrimary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.72"
-                            android:singleLine="true"
-                            android:text="ASSETS"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="@dimen/home_menu_text_size"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="114dp"
-                        android:background="@color/line_color_dark" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/line_color_dark" />
-
-
-            </LinearLayout>
-
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 </layout>

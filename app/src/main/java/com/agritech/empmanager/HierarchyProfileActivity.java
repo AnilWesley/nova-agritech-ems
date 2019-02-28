@@ -6,61 +6,62 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.agritech.empmanager.databinding.ActivityHomeNewBinding;
-import com.agritech.empmanager.fragments.HomeNewFragment;
+import com.agritech.empmanager.databinding.ActivityHierarchyProfileBinding;
+import com.agritech.empmanager.fragments.HierarchyProfileFragment;
 import com.agritech.empmanager.pojo.Emp;
-import com.agritech.empmanager.pojo.NewEmpBasic;
 import com.agritech.empmanager.textdrawable.ColorGenerator;
 import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.GlideApp;
-import com.agritech.empmanager.utils.PrefUtilities;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class HomeNewActivity extends AppCompatActivity implements HomeNewFragment.OnHomeNewFragmentInteractionListener {
+public class HierarchyProfileActivity extends AppCompatActivity implements HierarchyProfileFragment.OnFragmentInteractionListener {
 
-    ActivityHomeNewBinding binding;
-
-    TextDrawable drawable;
-
-    StorageReference storageRef;
+    ActivityHierarchyProfileBinding binding;
 
     FirebaseFirestore db;
 
-    String UID, name;
+    StorageReference storageRef;
+    TextDrawable drawable;
     Emp emp;
 
+    String UID, name;
 
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, HomeNewActivity.class));
+
+    public static void start(Context context, String uid, String name) {
+        Intent intent = new Intent(context, HierarchyProfileActivity.class);
+        intent.putExtra("emp_uid", uid);
+        intent.putExtra("emp_name", name);
+
+        context.startActivity(intent);
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home_new);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_hierarchy_profile);
 
         setSupportActionBar(binding.toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        UID = PrefUtilities.with(this).getUserId();
-        name = PrefUtilities.with(this).getName();
 
+        UID = getIntent().getStringExtra("emp_uid");
+        name = getIntent().getStringExtra("emp_name");
+        binding.tvName.setText(name);
 
         storageRef = FirebaseStorage.getInstance().getReference().child("profilePic/").child(UID + ".jpg");
-
 
         drawable = TextDrawable.builder()
                 .beginConfig()
@@ -69,42 +70,10 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
                 .endConfig()
                 .buildRect(name.charAt(0) + "", ColorGenerator.MATERIAL.getColor(name));
 
-        GlideApp.with(binding.ivProfile).load(storageRef).placeholder(drawable).into(binding.ivProfile);
-
-        binding.pbLoading.setIndeterminateTintList(ColorStateList.valueOf(ColorGenerator.MATERIAL.getColor(name)));
-
-        binding.tvName.setText(name);
-
-        db = FirebaseFirestore.getInstance();
-
-        db.collection("Employees").document(UID).get().addOnCompleteListener(this, task -> {
-
-            binding.pbLoading.setVisibility(View.GONE);
-
-            if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
-                if (document.exists()) {
+        GlideApp.with(binding.ivProfilePic).load(storageRef).placeholder(drawable).into(binding.ivProfilePic);
 
 
-                    emp = document.toObject(Emp.class);
-
-                    binding.tvDesignation.setText(emp.designation);
-
-
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.homeContainer, new HomeNewFragment())
-                            .commit();
-
-
-                    //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                } else {
-                    //Log.d(TAG, "No such document");
-                }
-            } else {
-                //Log.d(TAG, "get failed with ", task.getException());
-            }
-        });
+        binding.pBarUpload.setIndeterminateTintList(ColorStateList.valueOf(ColorGenerator.MATERIAL.getColor(name)));
 
 
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -126,15 +95,36 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
             }
         });
 
-    }
+        db = FirebaseFirestore.getInstance();
 
-    @Override
-    public void onHomeNewFragmentInteraction(String title) {
+        db.collection("Employees").document(UID).get().addOnCompleteListener(this, task -> {
 
-    }
+            binding.pBarUpload.setVisibility(View.GONE);
 
-    @Override
-    public void onHomeNewFragmentInteractionEditInfo(String type) {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+
+
+                    emp = document.toObject(Emp.class);
+
+                    binding.tvDesignation.setText(emp.designation);
+
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.hierarchyProfileContainer, HierarchyProfileFragment.setArguments(emp))
+                            .commit();
+
+
+                    //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                } else {
+                    //Log.d(TAG, "No such document");
+                }
+            } else {
+                //Log.d(TAG, "get failed with ", task.getException());
+            }
+        });
 
     }
 
@@ -177,25 +167,15 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
 
     public void startHierarchyActivity(View view) {
 
-        HierarchyActivity.start(this,UID);
+        HierarchyActivity.start(this, UID);
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.dashboard_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (item.getItemId() == R.id.menuLogout) {
-            FirebaseAuth.getInstance().signOut();
-            LoginActivity.start(this, 0);
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 
@@ -203,7 +183,6 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
     }
 
     public void startMyTeamsActivity(View view) {
-
 
         if (emp.teams == null) {
             Snackbar.make(binding.getRoot(), "No teams available", Snackbar.LENGTH_LONG).show();
@@ -214,5 +193,11 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
         } else {
             Snackbar.make(binding.getRoot(), "No teams available", Snackbar.LENGTH_LONG).show();
         }
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
