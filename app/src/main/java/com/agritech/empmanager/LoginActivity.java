@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Toast;
 
 import com.agritech.empmanager.databinding.ActivityLoginBinding;
 import com.agritech.empmanager.utils.Constants;
@@ -96,6 +97,9 @@ public class LoginActivity extends AppCompatActivity {
             return;*/
 
         if (user == null) {
+
+            Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
+
             return;
         }
 

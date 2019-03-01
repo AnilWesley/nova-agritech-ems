@@ -31,6 +31,15 @@
     </string-array>
 
 
+    <string-array name="leaveType">
+        <item>Casual Leaves</item>
+        <item>Sick Leaves</item>
+        <item>Annual Leaves</item>
+        <item>Maternal Leaves</item>
+        <item>Paternal Leaves</item>
+    </string-array>
+
+
     <string-array name="mStatus">
         <item>Yes</item>
         <item>No</item>

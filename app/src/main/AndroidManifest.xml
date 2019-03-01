@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HierarchyProfileActivity"></activity>
+        <activity android:name=".NewLeaveActivity"></activity>
+        <activity android:name=".LeaveActivity" />
+        <activity android:name=".HierarchyProfileActivity" />
         <activity android:name=".HierarchyActivity" />
         <activity android:name=".MyTeamsActivity" />
         <activity android:name=".MyProfileActivity" />
@@ -45,7 +47,6 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
 
-
         <service android:name=".utils.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -55,7 +56,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
-
     </application>
 
 </manifest>

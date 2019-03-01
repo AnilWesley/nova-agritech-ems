@@ -1,15 +1,17 @@
 package com.agritech.empmanager.utils;
 
 
+import android.util.Log;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import androidx.annotation.Nullable;
-
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+
+        Log.v("hiiiii_msg",remoteMessage.getMessageId());
 
     }
 

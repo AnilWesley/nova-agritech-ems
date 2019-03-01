@@ -177,7 +177,7 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
 
     public void startHierarchyActivity(View view) {
 
-        HierarchyActivity.start(this,UID);
+        HierarchyActivity.start(this, UID);
 
     }
 
@@ -214,5 +214,12 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
         } else {
             Snackbar.make(binding.getRoot(), "No teams available", Snackbar.LENGTH_LONG).show();
         }
+
+    }
+
+    public void startMyLeavesActivity(View view) {
+
+        LeaveActivity.start(this);
+
     }
 }
