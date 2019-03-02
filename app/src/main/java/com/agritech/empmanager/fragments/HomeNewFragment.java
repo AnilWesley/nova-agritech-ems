@@ -59,7 +59,8 @@ public class HomeNewFragment extends Fragment {
 
         GlideApp.with(binding.ivAssets).load(hRef.child("asserts.png")).into(binding.ivAssets);
         GlideApp.with(binding.ivHolidays).load(hRef.child("holiday.png")).into(binding.ivHolidays);
-        GlideApp.with(binding.ivLeaves).load(hRef.child("leave.png")).into(binding.ivLeaves);
+
+        GlideApp.with(binding.ivHRHierarchy).load(eRef.child("hierarchy.png")).into(binding.ivHRHierarchy);
 
 
         /*Emp icons*/

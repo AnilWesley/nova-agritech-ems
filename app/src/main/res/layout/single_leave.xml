@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="order"
-            type="com.agritech.empmanager.fastpojo.FastLeave" />
+            name="leave"
+            type="com.agritech.empmanager.pojo.Leave" />
 
     </data>
 
@@ -17,17 +17,17 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             android:layout_marginLeft="9dp"
+            android:layout_marginTop="6dp"
             android:layout_marginRight="9dp"
-            android:layout_marginTop="6dp">
+            android:layout_marginBottom="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="6dp"
-                android:paddingTop="12dp">
+                android:paddingTop="12dp"
+                android:paddingBottom="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,8 +39,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="12dp"
-                        android:text="@{ `Invoice no: ` + order.inv+` `}"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                        android:text="@{leave.leaveType}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -53,7 +53,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="12dp"
-                        android:text="@{order.dat}"
+                        android:text="@{leave.status}"
+                        android:textColor="@{leave.status.equals(`Pending`) ? @color/colorRed : @color/colorTejaSubItem, default = @color/colorTejaSubItem}"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
                 </LinearLayout>
@@ -61,8 +62,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
                     android:background="#3aaa" />
 
                 <TextView
@@ -70,24 +71,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lines="1"
-                    android:paddingBottom="6dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
-                    android:text="@{order.customer[0]}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                    android:paddingBottom="6dp"
+                    android:text="@{ leave.subject}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
 
                 <TextView
                     android:id="@+id/tvSummery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#1aaaaaaa"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="12dp"
                     android:ellipsize="end"
                     android:lines="2"
-                    android:text="@{order.desc}"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="12dp"
+                    android:text="@{leave.description}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                 <LinearLayout
@@ -95,6 +97,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="@{`From: ` + leave.fromDateAs}"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
 
 
                     <View
@@ -106,9 +116,9 @@
                         android:id="@+id/acbReplay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                         android:layout_margin="12dp"
-                        android:text="@{`Amount: ` + order.amount}" />
+                        android:text="@{`To: ` + leave.toDateAs}"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
 
 
                 </LinearLayout>

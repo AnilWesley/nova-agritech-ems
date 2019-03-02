@@ -13,7 +13,8 @@
     <string name="profile_transition_name">ProfilePic</string>
     <string name="pref_key_name">pref_key_name</string>
 
-    <string name="default_notification_channel_id">Push notifications</string>
+    <string name="default_notification_channel_name">Push notifications</string>
+    <string name="default_notification_channel_id">push_notifications</string>
 
     <string-array name="eventtypes">
         <item>HR</item>
@@ -41,8 +42,8 @@
 
 
     <string-array name="mStatus">
-        <item>Yes</item>
-        <item>No</item>
+        <item>Married</item>
+        <item>Single</item>
     </string-array>
 
 

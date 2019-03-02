@@ -22,138 +22,147 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
-            android:id="@+id/holidaysContainer"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="12dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilLeaveType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="Leave type"
-                app:errorEnabled="true"
-                android:layout_marginBottom="12dp"
-                app:helperTextEnabled="true"
-                android:textSize="16sp">
-
-
-                <AutoCompleteTextView
-                    android:id="@+id/etLeaveType"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:inputType="textPersonName"
-                    android:lines="1" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Subject">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etSubject"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:lines="1" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="From date"
-                android:textSize="16sp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etFromDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:inputType="date"
-                    android:lines="1" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="To Date"
-                android:textSize="16sp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etToDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:inputType="date"
-                    android:lines="1" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <TextView
-                android:id="@+id/tvhasDescriptionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="6dp"
-                android:text="Description"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
 
             <LinearLayout
+                android:id="@+id/holidaysContainer"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="#2aaa"
-                android:paddingLeft="12dp"
-                android:paddingTop="6dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="12dp">
 
 
-                <EditText
-                    android:id="@+id/etDescription"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLeaveType"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:gravity="start" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Leave type"
+                    app:errorEnabled="true"
+                    android:layout_marginBottom="12dp"
+                    app:helperTextEnabled="true"
+                    android:textSize="16sp">
+
+
+                    <AutoCompleteTextView
+                        android:id="@+id/etLeaveType"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="textPersonName"
+                        android:lines="1" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSubject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:lines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="From date"
+                    android:textSize="16sp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFromDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="date"
+                        android:lines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="To Date"
+                    android:textSize="16sp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etToDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="date"
+                        android:lines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/tvhasDescriptionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Description"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#2aaa"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="12dp">
+
+
+                    <EditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="start" />
+
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="applyForLeave"
+                    android:text="Appliy"
+                    android:textColor="@color/colorWhite" />
 
 
             </LinearLayout>
 
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="applyForLeave"
-                android:text="Appliy"
-                android:textColor="@color/colorWhite" />
+        </androidx.core.widget.NestedScrollView>
 
 
-        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

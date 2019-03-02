@@ -200,4 +200,10 @@ public class HierarchyProfileActivity extends AppCompatActivity implements Hiera
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    public void startLeavesActivity(View view) {
+
+        LeaveActivity.start(this,UID,true);
+
+    }
 }

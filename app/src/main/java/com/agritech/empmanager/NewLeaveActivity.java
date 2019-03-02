@@ -210,7 +210,7 @@ public class NewLeaveActivity extends AppCompatActivity implements DatePickerDia
 
             leaveMap.put("description", description);
 
-            leaveMap.put("status", "Applied");
+            leaveMap.put("status", "Pending");
 
             leaveMap.put("appliedByUID", PrefUtilities.with(this).getUserId());
             leaveMap.put("appliedByName", PrefUtilities.with(this).getName());

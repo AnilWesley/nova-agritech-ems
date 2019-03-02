@@ -113,11 +113,12 @@
                         android:background="@color/line_color_dark" />
 
                     <LinearLayout
-                        android:id="@+id/llMyAsserts"
+                        android:id="@+id/llHierarchy"
                         android:layout_width="0dp"
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
+                        android:onClick="startHierarchyActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
@@ -125,7 +126,7 @@
 
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivMyAsserts"
+                            android:id="@+id/ivHierarchy"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:padding="6dp"
@@ -136,7 +137,7 @@
                             android:layout_height="wrap_content"
                             android:alpha="0.72"
                             android:singleLine="true"
-                            android:text="Asserts"
+                            android:text="Hierarchy"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="@dimen/home_menu_text_size"
@@ -298,19 +299,18 @@
                         android:background="@color/line_color_dark" />
 
                     <LinearLayout
-                        android:id="@+id/llHierarchy"
+                        android:id="@+id/llMyAsserts"
                         android:layout_width="0dp"
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
-                        android:onClick="startHierarchyActivity"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
                         android:padding="12dp">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivHierarchy"
+                            android:id="@+id/ivMyAsserts"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:padding="6dp"
@@ -321,7 +321,7 @@
                             android:layout_height="wrap_content"
                             android:alpha="0.72"
                             android:singleLine="true"
-                            android:text="Hierarchy"
+                            android:text="Asserts"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="@dimen/home_menu_text_size"
@@ -620,18 +620,19 @@
                         android:background="@color/line_color_dark" />
 
                     <LinearLayout
-                        android:id="@+id/llLeaves"
+                        android:id="@+id/llHRHierarchy"
                         android:layout_width="0dp"
                         android:layout_height="90dp"
                         android:layout_margin="12dp"
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
                         android:gravity="center_horizontal"
+                        android:onClick="startHRHierarchyActivity"
                         android:orientation="vertical"
                         android:padding="12dp">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivLeaves"
+                            android:id="@+id/ivHRHierarchy"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:padding="6dp"
@@ -642,7 +643,7 @@
                             android:layout_height="wrap_content"
                             android:alpha="0.72"
                             android:singleLine="true"
-                            android:text="LEAVES"
+                            android:text="Hierarchy"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="@dimen/home_menu_text_size"

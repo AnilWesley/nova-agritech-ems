@@ -26,6 +26,8 @@ public class EmpEditWorkInfoFragment extends Fragment {
 
     Emp emp;
 
+    ArrayAdapter arrayAdapter;
+
 
     public EmpEditWorkInfoFragment() {
         // Required empty public constructor
@@ -37,7 +39,7 @@ public class EmpEditWorkInfoFragment extends Fragment {
         EmpEditWorkInfoFragment fragment = new EmpEditWorkInfoFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putParcelable("emp",emp);
+        bundle.putParcelable("emp", emp);
 
         fragment.setArguments(bundle);
 
@@ -56,7 +58,6 @@ public class EmpEditWorkInfoFragment extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -67,40 +68,46 @@ public class EmpEditWorkInfoFragment extends Fragment {
         binding.setEmp(emp);
 
 
-        ArrayAdapter arrayAdapter= new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.eventtypes));
+        arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.eventtypes));
+
         binding.etDepartment.setAdapter(arrayAdapter);
         binding.etDepartment.setInputType(0);
 
-        binding.etDepartment.setOnClickListener(v -> binding.etDepartment.showDropDown());
+        binding.etDepartment.setOnClickListener(v -> {
+
+            arrayAdapter.getFilter().filter(null);
+
+            binding.etDepartment.showDropDown();
+        });
 
 
-        binding.acbSave.setOnClickListener(v -> {
+            binding.acbSave.setOnClickListener(v -> {
 
-            //General information
+                //General information
 
-            String reportingToName = binding.etReportingTo.getText().toString();
-            String department = binding.etDepartment.getText().toString();
+                String reportingToName = binding.etReportingTo.getText().toString();
+                String department = binding.etDepartment.getText().toString();
 
-            String designation = binding.etDesignation.getText().toString();
+                String designation = binding.etDesignation.getText().toString();
 
-            String sourceOfHair = binding.etSourceofHair.getText().toString();
-
-
-            if (department.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Department To is empty", Snackbar.LENGTH_LONG).show();
-                return;
-            }
-
-            if (designation.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Designation is empty", Snackbar.LENGTH_LONG).show();
-                return;
-            }
+                String sourceOfHair = binding.etSourceofHair.getText().toString();
 
 
-            if (sourceOfHair.isEmpty()) {
-                Snackbar.make(binding.getRoot(), "Source Of Hair is empty", Snackbar.LENGTH_LONG).show();
-                return;
-            }
+                if (department.isEmpty()) {
+                    Snackbar.make(binding.getRoot(), "Department To is empty", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (designation.isEmpty()) {
+                    Snackbar.make(binding.getRoot(), "Designation is empty", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+
+
+                if (sourceOfHair.isEmpty()) {
+                    Snackbar.make(binding.getRoot(), "Source Of Hair is empty", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
 
           /*  if (pfNumber.isEmpty()) {
                 Snackbar.make(binding.getRoot(), "PF Number is empty", Snackbar.LENGTH_LONG).show();
@@ -108,49 +115,49 @@ public class EmpEditWorkInfoFragment extends Fragment {
             }
 */
 
-            if (mListener != null) {
-                mListener.onEmpEditWorkInfoFragmentInteraction(reportingToName, emp.reportingToUID, department, designation,sourceOfHair,v);
+                if (mListener != null) {
+                    mListener.onEmpEditWorkInfoFragmentInteraction(reportingToName, emp.reportingToUID, department, designation, sourceOfHair, v);
+                }
+
+
+            });
+
+
+            return binding.getRoot();
+        }
+
+
+        @Override
+        public void onAttach (Context context){
+            super.onAttach(context);
+            if (context instanceof OnEmpEditWorkInfoFragmentInteractionListener) {
+                mListener = (OnEmpEditWorkInfoFragmentInteractionListener) context;
+            } else {
+                throw new RuntimeException(context.toString()
+                        + " must implement OnFragmentInteractionListener");
             }
+        }
+
+        @Override
+        public void onDetach () {
+            super.onDetach();
+            mListener = null;
+        }
+
+        public void updateReportingTo (String uid, String name){
+
+            binding.etReportingTo.setText(name);
+
+            emp.reportingToName = name;
+            emp.reportingToUID = uid;
 
 
-        });
+        }
 
+        public interface OnEmpEditWorkInfoFragmentInteractionListener {
+            void onEmpEditWorkInfoFragmentInteraction(String reportingToName, String reportingToUID, String department, String designation, String sourceOfHire, View v);
 
-        return binding.getRoot();
-    }
+            void onEmpEditWorkInfoFragmentInteractionShowReportingTo();
 
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnEmpEditWorkInfoFragmentInteractionListener) {
-            mListener = (OnEmpEditWorkInfoFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
         }
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public void updateReportingTo(String uid, String name) {
-
-        binding.etReportingTo.setText(name);
-
-        emp.reportingToName = name;
-        emp.reportingToUID = uid;
-
-
-    }
-
-    public interface OnEmpEditWorkInfoFragmentInteractionListener {
-        void onEmpEditWorkInfoFragmentInteraction(String reportingToName, String reportingToUID, String department, String designation, String sourceOfHire, View v);
-
-        void onEmpEditWorkInfoFragmentInteractionShowReportingTo();
-
-    }
-}

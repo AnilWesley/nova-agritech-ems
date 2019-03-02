@@ -1,5 +1,6 @@
 package com.agritech.empmanager;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -21,7 +22,9 @@ import com.agritech.empmanager.textdrawable.TextDrawable;
 import com.agritech.empmanager.utils.GlideApp;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -116,7 +119,38 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
 
         db = FirebaseFirestore.getInstance();
 
-        db.collection("Employees").document(UID).get().addOnCompleteListener(this, task -> {
+
+        db.collection("Employees").document(UID).addSnapshotListener(this, (snapshot, e) -> {
+
+            binding.pbLoading.setVisibility(View.GONE);
+
+            if (e != null) {
+                //Log.w(TAG, "Listen failed.", e);
+                return;
+            }
+
+            if (snapshot != null && snapshot.exists()) {
+
+                emp = snapshot.toObject(Emp.class);
+
+                binding.tvDesignation.setText(emp.designation);
+
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.viewEmployeeContainer, ViewEmployeeFragment.setArguments(emp))
+                        .commit();
+
+
+                //Log.d(TAG, "Current data: " + snapshot.getData());
+            } else {
+                //Log.d(TAG, "Current data: null");
+            }
+        });
+
+
+
+       /* db.collection("Employees").document(UID).get().addOnCompleteListener(this, task -> {
 
             binding.pbLoading.setVisibility(View.GONE);
 
@@ -144,7 +178,7 @@ public class ViewEmployeeActivity extends AppCompatActivity implements ViewEmplo
                 //Log.d(TAG, "get failed with ", task.getException());
             }
         });
-
+*/
 
     }
 

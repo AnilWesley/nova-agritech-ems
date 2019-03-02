@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.agritech.empmanager.databinding.ActivityDepartmentsBinding;
 import com.agritech.empmanager.databinding.ActivityHierarchyBinding;
@@ -54,4 +55,19 @@ public class HierarchyActivity extends AppCompatActivity implements HierarchyFra
     public void onHierarchyFragmentInteraction() {
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int menuId = item.getItemId();
+
+        if (menuId == android.R.id.home) {
+
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

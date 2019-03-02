@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:hint="First Name"
+                android:visibility="gone"
                 android:textSize="16sp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -48,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:hint="Last Name"
+                android:visibility="gone"
                 android:textSize="16sp">
 
                 <com.google.android.material.textfield.TextInputEditText

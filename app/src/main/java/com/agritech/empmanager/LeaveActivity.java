@@ -1,7 +1,10 @@
 package com.agritech.empmanager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -14,14 +17,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.agritech.empmanager.databinding.ActivityLeaveBinding;
-import com.agritech.empmanager.databinding.SingleDepartmentBinding;
-import com.agritech.empmanager.fastpojo.FastLeave;
+import com.agritech.empmanager.databinding.SingleLeaveBinding;
+import com.agritech.empmanager.pojo.Leave;
+import com.agritech.empmanager.utils.RecyclerViewItemClickListener;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class LeaveActivity extends AppCompatActivity {
 
@@ -39,11 +47,23 @@ public class LeaveActivity extends AppCompatActivity {
     String UID;
     boolean forHR;
 
+    FirestoreRecyclerAdapter adapter;
+
+    Calendar calendar;
+
+    SimpleDateFormat sdf;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_leave);
+
+        binding.rvLeaves.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvLeaves.setHasFixedSize(true);
+
+        sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
 
         setSupportActionBar(binding.toolbar);
 
@@ -51,27 +71,42 @@ public class LeaveActivity extends AppCompatActivity {
 
         setTitle("My Leaves");
 
+        calendar = Calendar.getInstance();
+
         UID = getIntent().getStringExtra("uid");
         forHR = getIntent().getBooleanExtra("forHR", false);
 
-
         Query query = FirebaseFirestore.getInstance()
-
                 .collection("leaves")
                 .whereEqualTo("year", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)))
                 .whereEqualTo("appliedByUID", UID)
                 .orderBy("fromDate");
 
-        FirestoreRecyclerOptions<FastLeave> options = new FirestoreRecyclerOptions.Builder<FastLeave>()
-                .setQuery(query, FastLeave.class)
+        FirestoreRecyclerOptions<Leave> options = new FirestoreRecyclerOptions.Builder<Leave>()
+                .setQuery(query, snapshot -> {
+
+                    Leave leave = snapshot.toObject(Leave.class);
+
+                    calendar.setTimeInMillis(leave.fromDate);
+                    leave.fromDateAs = sdf.format(calendar.getTime());
+
+                    calendar.setTimeInMillis(leave.toDate);
+                    leave.toDateAs = sdf.format(calendar.getTime());
+
+
+                    return leave;
+                })
                 .build();
 
 
-        FirestoreRecyclerAdapter adapter = new FirestoreRecyclerAdapter<FastLeave, ViewHolder>(options) {
+        adapter = new FirestoreRecyclerAdapter<Leave, ViewHolder>(options) {
             @Override
-            public void onBindViewHolder(ViewHolder holder, int position, FastLeave model) {
-                // Bind the Chat object to the ChatHolder
-                // ...
+            public void onBindViewHolder(ViewHolder holder, int position, Leave model) {
+
+                holder.binding.setLeave(model);
+
+                holder.binding.getRoot().setTag(model);
+
             }
 
             @Override
@@ -84,7 +119,37 @@ public class LeaveActivity extends AppCompatActivity {
             }
         };
 
+        binding.rvLeaves.setItemAnimator(new DefaultItemAnimator());
 
+        binding.rvLeaves.setAdapter(adapter);
+
+        binding.rvLeaves.setEmptyView(binding.tvEmptyView);
+
+
+        binding.tvEmptyView.setVisibility(View.GONE);
+
+        binding.rvLeaves.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
+                (v, position) -> {
+
+                    ViewLeaveActivity.start(LeaveActivity.this, forHR, (Leave) v.getTag());
+
+
+                }));
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
 
@@ -113,11 +178,11 @@ public class LeaveActivity extends AppCompatActivity {
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        SingleDepartmentBinding binding;
+        SingleLeaveBinding binding;
 
         public ViewHolder(View view) {
             super(view);
-            binding = SingleDepartmentBinding.bind(view);
+            binding = SingleLeaveBinding.bind(view);
         }
 
     }

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.agritech.empmanager.databinding.ActivityTeamsBinding;
 import com.agritech.empmanager.fragments.DepartmentsFragment;
@@ -46,4 +47,22 @@ public class TeamsActivity extends AppCompatActivity implements TeamsFragment.On
 
 
     }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int menuId = item.getItemId();
+
+        if (menuId == android.R.id.home) {
+
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }

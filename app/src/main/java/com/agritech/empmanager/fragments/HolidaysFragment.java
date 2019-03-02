@@ -112,7 +112,6 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
         binding.rvDepartments.setEmptyView(binding.tvEmptyView);
 
 
-
         binding.tvEmptyView.setVisibility(View.GONE);
 
 
@@ -317,11 +316,11 @@ public class HolidaysFragment extends Fragment implements DatePickerDialog.OnDat
 
                 if (type == 1) {
                     db.collection("holidays").add(map);
-                } else
+                } else {
                     db.collection("holidays").document(holiday.uuid).update(map);
+                    itemAdapter.remove(position);
+                }
 
-
-                itemAdapter.remove(position);
 
                 dialog.dismiss();
 

@@ -219,7 +219,13 @@ public class HomeNewActivity extends AppCompatActivity implements HomeNewFragmen
 
     public void startMyLeavesActivity(View view) {
 
-        LeaveActivity.start(this);
+        LeaveActivity.start(this,UID,false);
+
+    }
+
+    public void startHRHierarchyActivity(View view) {
+
+        HierarchyActivity.start(this, "");
 
     }
 }

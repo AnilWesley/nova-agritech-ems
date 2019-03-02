@@ -70,7 +70,10 @@ public class EmpEditPersonalInfoFragment extends Fragment implements DatePickerD
         binding.etMaritalStatus.setAdapter(arrayAdapter);
         binding.etMaritalStatus.setInputType(0);
 
-        binding.etMaritalStatus.setOnClickListener(v -> binding.etMaritalStatus.showDropDown());
+        binding.etMaritalStatus.setOnClickListener(v -> {
+            arrayAdapter.getFilter().filter(null);
+            binding.etMaritalStatus.showDropDown();
+        });
 
         binding.etDateOfBirth.setOnClickListener(v -> {
 

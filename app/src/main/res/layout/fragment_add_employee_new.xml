@@ -1,5 +1,4 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.core.widget.NestedScrollView
@@ -40,24 +39,22 @@
                 android:orientation="vertical">
 
 
-
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Department"
-                    android:textSize="16sp"
-                    android:inputType="textPersonName">
+                    android:inputType="textPersonName"
+                    android:textSize="16sp">
 
                     <AutoCompleteTextView
                         android:id="@+id/etDepartment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="textPersonName"
-                        android:focusableInTouchMode="false"
                         android:cursorVisible="false"
                         android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="textPersonName"
                         android:lines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -116,7 +113,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,6 +131,15 @@
 
 
             </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:alpha="0.5"
+                android:text="First name, last name and email are can't be changed later."
+                android:textColor="@color/colorRed" />
 
 
             <androidx.appcompat.widget.AppCompatButton

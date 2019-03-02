@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.agritech.empmanager.databinding.ActivityMyProfileBinding;
@@ -139,4 +140,21 @@ public class MyProfileActivity extends AppCompatActivity implements MyProfileFra
     public void onViewEmployeeFragmentInteractionEditInfo(String type) {
 
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int menuId = item.getItemId();
+
+        if (menuId == android.R.id.home) {
+
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }

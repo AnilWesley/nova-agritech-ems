@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.agritech.empmanager.databinding.ActivityMyTeamsBinding;
@@ -107,4 +108,22 @@ public class MyTeamsActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int menuId = item.getItemId();
+
+        if (menuId == android.R.id.home) {
+
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
