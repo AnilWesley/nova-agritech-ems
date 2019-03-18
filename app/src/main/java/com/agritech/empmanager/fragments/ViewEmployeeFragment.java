@@ -136,6 +136,15 @@ public class ViewEmployeeFragment extends Fragment {
         });
 
 
+        binding.llEmpEducationInfo.setOnClickListener(v -> {
+
+            if (mListener != null) {
+                mListener.onViewEmployeeFragmentInteractionEditInfo(EditEmployee.VIEW_EDU_INFO);
+            }
+
+        });
+
+
     }
 
 

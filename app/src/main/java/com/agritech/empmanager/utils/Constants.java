@@ -6,6 +6,8 @@ public class Constants {
 
     public static final int FAST_DEPT_ID = 10002;
     public static final int FAST_HOLIDAY_ID = 10003;
+    public static final int FAST_EMP_EDUCATION = 10004;
+    public static final int FAST_EMP_WORK = 10005;
 
 
 /*

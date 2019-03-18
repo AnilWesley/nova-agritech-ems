@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="empWork"
+            type="com.agritech.empmanager.fastpojo.FastEmpWork" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:listPreferredItemHeightSmall"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{`Company: `+ empWork.companyName}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/colorTejaTitle"
+                android:textSize="16sp"
+                tools:text="Accounts" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="12dp"
+            android:text="@{`Job title: `+ empWork.jobTitle}"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="10" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="12dp"
+            android:text="@{`From: `+ empWork.fromDate+` To: `+empWork.toDate}"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="12dp"
+            android:text="@{`Job Description: `+empWork.desc}"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="10" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/line_color_dark" />
+
+    </LinearLayout>
+
+</layout>

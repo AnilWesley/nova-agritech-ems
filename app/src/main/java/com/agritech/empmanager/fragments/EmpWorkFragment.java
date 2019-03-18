@@ -1,6 +1,5 @@
 package com.agritech.empmanager.fragments;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
@@ -18,17 +17,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.agritech.empmanager.EmployeesActivity;
 import com.agritech.empmanager.R;
 import com.agritech.empmanager.databinding.FragmentEmpEducationBinding;
-import com.agritech.empmanager.fastpojo.FastDept;
 import com.agritech.empmanager.fastpojo.FastEmpEducation;
-import com.agritech.empmanager.fastpojo.FastHoliday;
+import com.agritech.empmanager.fastpojo.FastEmpWork;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firestore.v1beta1.StructuredQuery;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter.listeners.OnClickListener;
@@ -44,7 +40,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 
-public class EmpEducationFragment extends Fragment {
+public class EmpWorkFragment extends Fragment {
 
     private OnEmpEducationFragmentInteractionListener mListener;
 
@@ -60,14 +56,14 @@ public class EmpEducationFragment extends Fragment {
     CollectionReference cf;
 
 
-    public EmpEducationFragment() {
+    public EmpWorkFragment() {
         // Required empty public constructor
     }
 
 
-    public static EmpEducationFragment setArguments(String empId) {
+    public static EmpWorkFragment setArguments(String empId) {
 
-        EmpEducationFragment fragment = new EmpEducationFragment();
+        EmpWorkFragment fragment = new EmpWorkFragment();
         Bundle bundle = new Bundle();
         bundle.putString("emp_id", empId);
 
@@ -93,7 +89,7 @@ public class EmpEducationFragment extends Fragment {
 
         Log.v("emp_id",empId);
 
-        cf = FirebaseFirestore.getInstance().collection("Employees/" + empId + "/education");
+        cf = FirebaseFirestore.getInstance().collection("Employees/" + empId + "/work");
         binding.rvEmpEducation.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.rvEmpEducation.setHasFixedSize(true);
 
@@ -125,7 +121,7 @@ public class EmpEducationFragment extends Fragment {
 
 
 
-                            FastEmpEducation employee = dc.getDocument().toObject(FastEmpEducation.class);
+                            FastEmpWork employee = dc.getDocument().toObject(FastEmpWork.class);
 
                             itemAdapter.add(employee);
 

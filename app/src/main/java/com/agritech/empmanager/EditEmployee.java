@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,7 @@ import com.agritech.empmanager.fragments.EmpEditDepInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditLeaveInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditPersonalInfoFragment;
 import com.agritech.empmanager.fragments.EmpEditWorkInfoFragment;
+import com.agritech.empmanager.fragments.EmpEducationFragment;
 import com.agritech.empmanager.fragments.SelectReportingToFragment;
 import com.agritech.empmanager.pojo.Emp;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,13 +30,15 @@ public class EditEmployee extends AppCompatActivity implements
         EmpEditDepInfoFragment.OnEmpEditDepInfoFragmentInteractionListener,
         EmpEditLeaveInfoFragment.OnEmpEditLeaveInfoFragmentInteractionListener,
         EmpEditPersonalInfoFragment.OnEmpEditPersonalInfoFragmentInteractionListener,
-        SelectReportingToFragment.OnSelectReportingToFragmentInteractionListener {
+        SelectReportingToFragment.OnSelectReportingToFragmentInteractionListener,
+        EmpEducationFragment.OnEmpEducationFragmentInteractionListener{
 
     public static final String EDIT_BASIC_INFO = "emp_edit_basic_info";
     public static final String EDIT_WORK_INFO = "emp_edit_work_info";
     public static final String EDIT_LEAVE_INFO = "emp_edit_leave_info";
     public static final String EDIT_PERSONAL_INFO = "emp_edit_personal_info";
     public static final String EDIT_DEP_INFO = "emp_edit_dep_info";
+    public static final String VIEW_EDU_INFO = "emp_view_edu_info";
 
     SelectReportingToFragment selectReportingToFragment;
 
@@ -103,6 +107,12 @@ public class EditEmployee extends AppCompatActivity implements
             setTitle("Edit dep info");
 
             getSupportFragmentManager().beginTransaction().replace(R.id.editEmployeeContainer, EmpEditDepInfoFragment.setArguments(emp)).commit();
+
+        } else if (type.equals(VIEW_EDU_INFO)) {
+
+            setTitle("Education");
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.editEmployeeContainer, EmpEducationFragment.setArguments(emp.uid)).commit();
 
         }
 
@@ -273,6 +283,11 @@ public class EditEmployee extends AppCompatActivity implements
 
 
                 });
+
+    }
+
+    @Override
+    public void onEmpEducationFragmentInteraction(Uri uri) {
 
     }
 }
