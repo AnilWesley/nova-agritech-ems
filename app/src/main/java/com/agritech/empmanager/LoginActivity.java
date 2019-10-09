@@ -24,6 +24,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
@@ -49,8 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginUser(final View view) {
 
-        String userEmail = binding.etLoginUsername.getText().toString();
-        String password = binding.etLoginPassword.getText().toString();
+        String userEmail = Objects.requireNonNull(binding.etLoginUsername.getText()).toString();
+        String password = Objects.requireNonNull(binding.etLoginPassword.getText()).toString();
 
         if (userEmail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
             Snackbar.make(binding.getRoot(), "Email id is empty or incorrect", Snackbar.LENGTH_LONG).show();
